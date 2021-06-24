@@ -1,10 +1,12 @@
 import { SetDetails } from "./Set";
 import { AllCards } from "./AllCards";
+import { SetStats } from "./SetStats";
 
 export const SetPage = ({ set, cards }) => (
   <>
     <div>
       <SetDetails {...set} />
+
       <AllCards cards={cards} />
     </div>
 

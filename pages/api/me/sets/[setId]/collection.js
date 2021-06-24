@@ -23,6 +23,6 @@ export default withApiAuthRequired(async function collectionEndpoint(req, res) {
       res.status(404).end();
     }
   } finally {
-    await connection.destroy();
+    connection.destroy();
   }
 });

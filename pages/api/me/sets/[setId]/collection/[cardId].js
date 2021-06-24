@@ -23,6 +23,6 @@ export default async function collectionCardEndpoint(req, res) {
       res.status(404).end();
     }
   } finally {
-    await connection.destroy();
+    connection.destroy();
   }
 }

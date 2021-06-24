@@ -8,7 +8,7 @@ export const SetLogo = ({ logoUrl }) => (
       div {
         position: relative;
         margin: auto;
-        width: 80%;
+        width: 40%;
         aspect-ratio: 4/3;
       }
     `}</style>

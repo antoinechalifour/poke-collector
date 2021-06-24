@@ -1,8 +1,10 @@
 import { SetLogo } from "./SetLogo";
 import { SetTitle } from "./SetTitle";
 import { SetSummary } from "./SetSummary";
+import { SetStats } from "@/components/SetPage/SetStats";
 
 export const SetDetails = ({
+  id,
   images,
   name,
   printedTotal,
@@ -22,27 +24,31 @@ export const SetDetails = ({
           printedTotal={printedTotal}
         />
       </div>
+
+      <SetStats setId={id} />
     </section>
 
     <style jsx>{`
       section {
         position: sticky;
-        top: 0;
+        top: 62px;
 
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        width: 100%;
         min-height: calc(100vh - 62px);
       }
 
-      div {
+      section div {
         position: relative;
         z-index: 1;
 
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
       }
     `}</style>
   </div>

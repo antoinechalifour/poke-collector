@@ -3,6 +3,9 @@ import Head from "next/head";
 
 import { applyAppLayout } from "@/components/Layouts/AppLayout";
 import { SetPage } from "@/components/SetPage/SetPage";
+import { SetsHTTPAdapter } from "@/server/SetsHTTPAdapter";
+import { http } from "@/server/http";
+import { CardsHTTPAdapter } from "@/server/CardsHTTPAdapter";
 
 export default function Set({ set, cards }) {
   return (
@@ -21,11 +24,7 @@ export default function Set({ set, cards }) {
 Set.getLayout = applyAppLayout;
 
 export const getStaticPaths = async () => {
-  const sets = await axios
-    .get("https://api.pokemontcg.io/v2/sets", {
-      headers: { "X-Api-Key": process.env.API_KEY },
-    })
-    .then((res) => res.data.data);
+  const sets = await SetsHTTPAdapter(http).all();
 
   return {
     paths: sets.map((set) => ({
@@ -37,16 +36,8 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const [set, cards] = await Promise.all([
-    axios
-      .get(`https://api.pokemontcg.io/v2/sets/${params.id}`, {
-        headers: { "X-Api-Key": process.env.API_KEY },
-      })
-      .then((res) => res.data.data),
-    axios
-      .get(`https://api.pokemontcg.io/v2/cards?q=set.id:${params.id}`, {
-        headers: { "X-Api-Key": process.env.API_KEY },
-      })
-      .then((res) => res.data.data),
+    SetsHTTPAdapter(http).ofIf(params.id),
+    CardsHTTPAdapter(http).ofSet(params.id),
   ]);
 
   return {

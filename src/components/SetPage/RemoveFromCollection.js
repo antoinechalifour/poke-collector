@@ -16,7 +16,10 @@ export const RemoveFromCollection = ({ cardId, set }) => {
 
     return axios
       .delete(`/api/me/sets/${set.id}/collection/${cardId}`)
-      .then(() => mutate(`/api/me/sets/${set.id}/collection`));
+      .then(() => {
+        mutate(`/api/me/sets/${set.id}/collection`);
+        mutate(`/api/me/sets/${set.id}/collection/stats`);
+      });
   };
 
   return (

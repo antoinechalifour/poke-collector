@@ -1,8 +1,9 @@
 import Head from "next/head";
-import axios from "axios";
 
 import { HomePage } from "@/components/HomePage/HomePage";
 import { applyAppLayout } from "@/components/Layouts/AppLayout";
+import { SetsHTTPAdapter } from "@/server/SetsHTTPAdapter";
+import { http } from "@/server/http";
 
 export default function Home({ sets }) {
   return (
@@ -20,14 +21,6 @@ export default function Home({ sets }) {
 
 Home.getLayout = applyAppLayout;
 
-export const getStaticProps = async () => {
-  const sets = await axios
-    .get("https://api.pokemontcg.io/v2/sets?orderBy=-releaseDate", {
-      headers: { "X-Api-Key": process.env.API_KEY },
-    })
-    .then((res) => res.data.data);
-
-  return {
-    props: { sets: sets },
-  };
-};
+export const getStaticProps = async () => ({
+  props: { sets: await SetsHTTPAdapter(http).all() },
+});
