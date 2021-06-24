@@ -1,8 +1,8 @@
 import axios from "axios";
 import Head from "next/head";
 
-import { applyAppLayout } from "../../src/components/AppLayout";
-import { SetPage } from "../../src/components/SetPage";
+import { applyAppLayout } from "../../src/components/Layouts/AppLayout";
+import { SetPage } from "../../src/components/SetPage/SetPage";
 
 export default function Set({ set, cards }) {
   return (
@@ -26,7 +26,6 @@ export const getStaticPaths = async () => {
       headers: { "X-Api-Key": process.env.API_KEY },
     })
     .then((res) => res.data.data);
-  // const sets = stubSets.data;
 
   return {
     paths: sets.map((set) => ({

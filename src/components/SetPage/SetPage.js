@@ -1,11 +1,11 @@
 import { SetDetails } from "./Set";
-import { CardList } from "./Card";
+import { AllCards } from "./AllCards";
 
 export const SetPage = ({ set, cards }) => (
   <>
     <div>
       <SetDetails {...set} />
-      <CardList cards={cards} />
+      <AllCards cards={cards} />
     </div>
 
     <style jsx>{`
