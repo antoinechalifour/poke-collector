@@ -1,34 +1,24 @@
 import axios from "axios";
-import { SetDetails } from "../../src/components/Set";
-import { CardList } from "../../src/components/Card";
 import Head from "next/head";
 
-export default function SetPage({ set, cards }) {
+import { applyAppLayout } from "../../src/components/AppLayout";
+import { SetPage } from "../../src/components/SetPage";
+
+export default function Set({ set, cards }) {
   return (
-    <div>
+    <>
       <Head>
         <title>{set.name}</title>
         <meta name="description" content={`Cards for set "${set.name}"`} />
         <link rel="icon" href={set.images.symbol} />
       </Head>
-      <main>
-        <SetDetails {...set} />
-        <CardList cards={cards} />
 
-        <style jsx>{`
-          main {
-            display: grid;
-          }
-          @media (min-width: 800px) {
-            main {
-              grid-template-columns: 1fr 2fr;
-            }
-          }
-        `}</style>
-      </main>
-    </div>
+      <SetPage set={set} cards={cards} />
+    </>
   );
 }
+
+Set.getLayout = applyAppLayout;
 
 export const getStaticPaths = async () => {
   const sets = await axios

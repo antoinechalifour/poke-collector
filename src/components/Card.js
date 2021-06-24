@@ -1,5 +1,8 @@
 import Image from "next/image";
 import { TYPES } from "./Icons";
+import { useUser } from "@auth0/nextjs-auth0";
+import useSWR, { mutate } from "swr";
+import axios from "axios";
 
 const Types = ({ types }) => {
   const [primaryType] = types;
@@ -115,7 +118,97 @@ const CardImage = ({ url, alt }) => (
   </div>
 );
 
+const fetcher = (url) => axios.get(url).then((res) => res.data);
+
+const AddToCollection = ({ cardId, set }) => {
+  const handleClick = () =>
+    axios
+      .post(`/api/me/sets/${set.id}/collection`, { cardId })
+      .then(() => mutate(`/api/me/sets/${set.id}/collection`));
+
+  return <button onClick={handleClick}>Add to collection</button>;
+};
+
+const RemoveFromCollection = ({ cardId, set }) => {
+  const handleClick = () =>
+    axios
+      .delete(`/api/me/sets/${set.id}/collection/${cardId}`)
+      .then(() => mutate(`/api/me/sets/${set.id}/collection`));
+
+  return (
+    <button onClick={handleClick} aria-label="Remove from collection">
+      ❌
+      <style jsx>{`
+        button {
+          position: absolute;
+          right: 0;
+          top: 0;
+          border-radius: 50%;
+          background: #171717;
+          border: 2px solid #000;
+          aspect-ratio: 1;
+          width: 3rem;
+          display: block;
+          cursor: pointer;
+
+          transform: translate(50%, -50%) scale(1);
+          transition: transform 0.25s ease;
+        }
+
+        button:hover {
+          transform: translate(50%, -50%) scale(1.1);
+        }
+      `}</style>
+    </button>
+  );
+};
+
+const CollectionStatus = ({ cardId, set }) => {
+  const { data } = useSWR(`/api/me/sets/${set.id}/collection`, fetcher);
+
+  if (!data) return null;
+
+  const isCollected = data.cards.includes(cardId);
+
+  return (
+    <div>
+      {isCollected ? (
+        <p>
+          COLLECTED
+          <RemoveFromCollection cardId={cardId} set={set} />
+        </p>
+      ) : (
+        <AddToCollection cardId={cardId} set={set} />
+      )}
+
+      <style jsx>{`
+        div {
+          position: absolute;
+          top: 20%;
+          left: 50%;
+          transform: rotate(-15deg) translateX(-50%);
+        }
+
+        p {
+          position: relative;
+          display: inline-block;
+          border: 2px solid red;
+          text-align: center;
+          background: rgba(255, 0, 0, 0.75);
+          color: #fff;
+          border-radius: 2rem;
+          font-weight: 600;
+          font-size: 3rem;
+          padding: 2rem;
+          text-transform: uppercase;
+        }
+      `}</style>
+    </div>
+  );
+};
+
 const Card = ({
+  id,
   name,
   images,
   types = [],
@@ -127,10 +220,13 @@ const Card = ({
   tcgplayer,
 }) => {
   const [primaryType] = types;
+  const { user } = useUser();
 
   return (
     <section>
       <CardImage url={images.small} alt={name} />
+
+      {user && <CollectionStatus cardId={id} set={set} />}
 
       <div>
         <Types types={types} />
