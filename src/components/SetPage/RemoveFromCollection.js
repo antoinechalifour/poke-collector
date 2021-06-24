@@ -1,11 +1,23 @@
 import axios from "axios";
 import { mutate } from "swr";
 
+const removeCardMutator = (cardId) => (collection) => ({
+  ...collection,
+  cards: collection.cards.filter((id) => id !== cardId),
+});
+
 export const RemoveFromCollection = ({ cardId, set }) => {
-  const handleClick = () =>
-    axios
+  const handleClick = () => {
+    mutate(
+      `/api/me/sets/${set.id}/collection`,
+      removeCardMutator(cardId),
+      false
+    );
+
+    return axios
       .delete(`/api/me/sets/${set.id}/collection/${cardId}`)
       .then(() => mutate(`/api/me/sets/${set.id}/collection`));
+  };
 
   return (
     <button onClick={handleClick} aria-label="Remove from collection">

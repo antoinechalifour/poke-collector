@@ -1,11 +1,19 @@
 import axios from "axios";
 import { mutate } from "swr";
 
+const addCardMutator = (cardId) => (collection) => ({
+  ...collection,
+  cards: [...collection.cards, cardId],
+});
+
 export const AddToCollection = ({ cardId, set }) => {
-  const handleClick = () =>
-    axios
+  const handleClick = () => {
+    mutate(`/api/me/sets/${set.id}/collection`, addCardMutator(cardId), false);
+
+    return axios
       .post(`/api/me/sets/${set.id}/collection`, { cardId })
       .then(() => mutate(`/api/me/sets/${set.id}/collection`));
+  };
 
   return (
     <button onClick={handleClick}>
