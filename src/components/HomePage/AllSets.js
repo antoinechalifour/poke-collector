@@ -13,7 +13,7 @@ export const AllSets = ({ sets }) => (
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         grid-gap: 2rem;
-        max-width: 960px;
+        max-width: 1400px;
         margin: auto;
       }
     `}</style>
