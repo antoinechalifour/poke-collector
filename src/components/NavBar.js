@@ -7,7 +7,7 @@ const UserProfile = ({ user }) => (
   <div>
     <p>Welcome {user.given_name}</p>
     {/* eslint-disable-next-line @next/next/no-img-element */}
-    <img src={user.picture} />
+    <img src={user.picture} alt="" />
     {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
     <a href="/api/auth/logout">Logout</a>
 
