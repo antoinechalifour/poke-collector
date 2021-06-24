@@ -1,8 +1,8 @@
 import axios from "axios";
 import Head from "next/head";
 
-import { applyAppLayout } from "../../src/components/Layouts/AppLayout";
-import { SetPage } from "../../src/components/SetPage/SetPage";
+import { applyAppLayout } from "@/components/Layouts/AppLayout";
+import { SetPage } from "@/components/SetPage/SetPage";
 
 export default function Set({ set, cards }) {
   return (

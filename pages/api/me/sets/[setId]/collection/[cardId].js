@@ -1,8 +1,8 @@
 import { getSession } from "@auth0/nextjs-auth0";
 
-import { RemoveCardFromCollection } from "../../../../../../src/server/removeCardFromCollection";
-import { CollectionsSQLAdapter } from "../../../../../../src/server/CollectionsSQLAdapter";
-import { connect } from "../../../../../../src/server/knex";
+import { RemoveCardFromCollection } from "@/server/RemoveCardFromCollection";
+import { CollectionsSQLAdapter } from "@/server/CollectionsSQLAdapter";
+import { connect } from "@/server/knex";
 
 export default async function collectionCardEndpoint(req, res) {
   const { user } = getSession(req, res);

@@ -1,5 +1,6 @@
 import axios from "axios";
 import useSWR from "swr";
+
 import { AddToCollection } from "./AddToCollection";
 import { CollectedBadge } from "./CollectedBadge";
 

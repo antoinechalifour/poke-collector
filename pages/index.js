@@ -1,8 +1,8 @@
 import Head from "next/head";
 import axios from "axios";
 
-import { HomePage } from "../src/components/HomePage/HomePage";
-import { applyAppLayout } from "../src/components/Layouts/AppLayout";
+import { HomePage } from "@/components/HomePage/HomePage";
+import { applyAppLayout } from "@/components/Layouts/AppLayout";
 
 export default function Home({ sets }) {
   return (

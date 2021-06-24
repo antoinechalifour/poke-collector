@@ -1,4 +1,4 @@
-import config from "../../knexfile";
 import Knex from "knex";
+import config from "../../knexfile";
 
 export const connect = () => Knex(config);

@@ -1,6 +1,7 @@
+import Link from "next/link";
+
 import { SetLogo } from "./SetLogo";
 import { SetSummary } from "./SetSummary";
-import Link from "next/link";
 
 export const SetItem = ({ id, name, images, series, releaseDate, total }) => (
   <section>

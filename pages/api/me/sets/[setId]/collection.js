@@ -1,9 +1,9 @@
 import { getSession, withApiAuthRequired } from "@auth0/nextjs-auth0";
 
-import { RetrieveCollection } from "../../../../../src/server/RetrieveCollection";
-import { AddCardToCollection } from "../../../../../src/server/AddCardToCollection";
-import { CollectionsSQLAdapter } from "../../../../../src/server/CollectionsSQLAdapter";
-import { connect } from "../../../../../src/server/knex";
+import { RetrieveCollection } from "@/server/RetrieveCollection";
+import { AddCardToCollection } from "@/server/AddCardToCollection";
+import { CollectionsSQLAdapter } from "@/server/CollectionsSQLAdapter";
+import { connect } from "@/server/knex";
 
 export default withApiAuthRequired(async function collectionEndpoint(req, res) {
   const { user } = getSession(req, res);
