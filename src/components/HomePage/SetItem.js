@@ -1,34 +1,14 @@
 import Link from "next/link";
-import Image from "next/image";
 
 import { SetLogo } from "./SetLogo";
 import { SetSummary } from "./SetSummary";
-
-const SetTitle = ({ symbolUrl, name }) => (
-  <div>
-    <Image width={20} height={20} src={symbolUrl} alt={`${name} icon`} />
-
-    <h2>{name}</h2>
-
-    <style jsx>{`
-      div {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-gap: 1rem;
-        align-items: center;
-      }
-
-      h2 {
-        font-weight: 600;
-        text-transform: uppercase;
-      }
-    `}</style>
-  </div>
-);
+import { SetTitle } from "./SetTitle";
+import { CollectionProgress } from "./CollectionProgress";
 
 export const SetItem = ({ id, name, images, series, releaseDate, total }) => (
   <section>
     <header>
+      <CollectionProgress setId={id} />
       <SetLogo alt={name} url={images.logo} />
     </header>
 
@@ -44,9 +24,11 @@ export const SetItem = ({ id, name, images, series, releaseDate, total }) => (
       section {
         border-radius: 1rem;
         background: #171717;
+        overflow: hidden;
       }
 
       header {
+        position: relative;
         padding: 1rem 1rem 0;
       }
 

@@ -1,4 +1,15 @@
+const mapper = (row) => ({
+  collectorId: row.collector_id,
+  setId: row.set_id,
+  cards: row.card_ids,
+});
+
 export const CollectionsSQLAdapter = (knex) => ({
+  ofCollector: (collectorId) =>
+    knex
+      .from("collections")
+      .where({ collector_id: collectorId })
+      .then((rows) => rows.map(mapper)),
   ofCollectorAndSet: (collectorId, setId) =>
     knex
       .from("collections")
@@ -7,14 +18,10 @@ export const CollectionsSQLAdapter = (knex) => ({
         set_id: setId,
       })
       .first()
-      .then((collection) => {
-        if (!collection) return null;
+      .then((row) => {
+        if (!row) return null;
 
-        return {
-          collectorId: collection.collector_id,
-          setId: collection.set_id,
-          cards: collection.card_ids,
-        };
+        return mapper(row);
       }),
 
   save: (collection) =>
