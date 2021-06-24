@@ -1,7 +1,30 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { SetLogo } from "./SetLogo";
 import { SetSummary } from "./SetSummary";
+
+const SetTitle = ({ symbolUrl, name }) => (
+  <div>
+    <Image width={20} height={20} src={symbolUrl} alt={`${name} icon`} />
+
+    <h2>{name}</h2>
+
+    <style jsx>{`
+      div {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-gap: 1rem;
+        align-items: center;
+      }
+
+      h2 {
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    `}</style>
+  </div>
+);
 
 export const SetItem = ({ id, name, images, series, releaseDate, total }) => (
   <section>
@@ -10,7 +33,7 @@ export const SetItem = ({ id, name, images, series, releaseDate, total }) => (
     </header>
 
     <div>
-      <h2>{name}</h2>
+      <SetTitle symbolUrl={images.symbol} name={name} />
       <SetSummary series={series} releaseDate={releaseDate} total={total} />
       <Link href={`/sets/${id}`}>
         <a>See cards</a>
@@ -31,11 +54,6 @@ export const SetItem = ({ id, name, images, series, releaseDate, total }) => (
         display: grid;
         grid-gap: 1rem;
         padding: 2rem;
-      }
-
-      h2 {
-        font-weight: 600;
-        text-transform: uppercase;
       }
 
       a {
