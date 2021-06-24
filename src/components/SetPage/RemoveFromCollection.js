@@ -32,11 +32,15 @@ export const RemoveFromCollection = ({ cardId, set }) => {
           top: 0;
 
           display: block;
-          width: 3rem;
+          width: 3.4rem;
+          padding: 0;
           aspect-ratio: 1;
           border-radius: 50%;
           border: 2px solid #000;
 
+          font-size: 1.2rem;
+          line-height: 1;
+          text-indent: -3px;
           cursor: pointer;
           background: #171717;
 
