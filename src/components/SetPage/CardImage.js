@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const CardImage = ({ url, alt }) => (
   <div>
-    <Image layout="fill" src={url} alt={alt} />
+    <Image loading="eager" layout="fill" src={url} alt={alt} />
     <style jsx>{`
       div {
         position: relative;

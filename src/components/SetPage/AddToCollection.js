@@ -30,7 +30,6 @@ export const AddToCollection = ({ cardId, set }) => {
           text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
 
           transition: padding 0.25s ease;
-          backdrop-filter: blur(2px);
         }
 
         button:hover {
