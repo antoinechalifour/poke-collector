@@ -1,32 +1,8 @@
 import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0";
 
-import { PokeBall } from "@/components/PokeBall";
-
-const UserProfile = ({ user }) => (
-  <div>
-    <p>Welcome {user.given_name}</p>
-    {/* eslint-disable-next-line @next/next/no-img-element */}
-    <img src={user.picture} alt="" />
-    {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-    <a href="/api/auth/logout">Logout</a>
-
-    <style jsx>{`
-      div {
-        display: grid;
-        grid-template-columns: auto 30px auto;
-        align-items: center;
-        grid-gap: 2rem;
-      }
-
-      img {
-        display: block;
-        width: 100%;
-        border-radius: 50%;
-      }
-    `}</style>
-  </div>
-);
+import { PokeBall } from "./PokeBall";
+import { UserProfile } from "./UserProfile";
 
 export const NavBar = () => {
   const { user } = useUser();
@@ -39,6 +15,8 @@ export const NavBar = () => {
         </a>
       </Link>
 
+      <p>PokeCollector</p>
+
       {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
       {!user && <a href="/api/auth/login">Login</a>}
       {user && <UserProfile user={user} />}
@@ -49,13 +27,18 @@ export const NavBar = () => {
           top: 0;
           z-index: 10;
 
-          display: flex;
+          display: grid;
           align-items: center;
-          justify-content: space-between;
+          grid-template-columns: auto 1fr auto;
+          grid-gap: 2rem;
           padding: 2rem;
 
           background: rgba(0, 0, 0, 0.75);
           backdrop-filter: blur(5px);
+        }
+
+        p {
+          font-weight: bold;
         }
       `}</style>
     </nav>
