@@ -8,6 +8,7 @@ import { SearchBar } from "./SearchBar";
 const fuseOption = {
   includeScore: true,
   useExtendedSearch: true,
+  ignoreLocation: true,
   keys: ["name", "rarity"],
 };
 
@@ -24,6 +25,8 @@ const useCardsSearch = (allCards) => {
             .filter((result) => result.score <= 0.35)
             .map((x) => x.item)
         : allCards;
+
+      console.log(fuse.search(query));
 
       setSearchResults(results);
     },
