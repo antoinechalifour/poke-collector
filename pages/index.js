@@ -24,6 +24,9 @@ export default function Home({ sets }) {
 
 Home.getLayout = applyAppLayout;
 
+const aWeek = 60 * 60 * 24 * 7;
+
 export const getStaticProps = async () => ({
   props: { sets: await SetsHTTPAdapter(http).all() },
+  revalidate: aWeek,
 });

@@ -37,13 +37,16 @@ export const getStaticPaths = async () => {
   };
 };
 
+const anHour = 60 * 60 * 6;
+
 export const getStaticProps = async ({ params }) => {
   const [set, cards] = await Promise.all([
-    SetsHTTPAdapter(http).ofIf(params.id),
+    SetsHTTPAdapter(http).ofId(params.id),
     CardsHTTPAdapter(http).ofSet(params.id),
   ]);
 
   return {
     props: { set, cards },
+    revalidate: anHour,
   };
 };
