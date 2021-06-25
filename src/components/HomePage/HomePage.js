@@ -2,7 +2,7 @@ import { AllSets } from "./AllSets";
 
 export const HomePage = ({ sets }) => (
   <main>
-    <h1>Poke Collector</h1>
+    <h1>Poké Collector</h1>
 
     <AllSets sets={sets} />
 

@@ -15,7 +15,7 @@ export const NavBar = () => {
         </a>
       </Link>
 
-      <p>PokeCollector</p>
+      <p>Poké Collector</p>
 
       {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
       {!user && <a href="/api/auth/login">Login</a>}
