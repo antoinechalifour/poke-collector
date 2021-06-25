@@ -11,8 +11,11 @@ export default function Set({ set, cards }) {
   return (
     <>
       <Head>
-        <title>{set.name}</title>
-        <meta name="description" content={`Cards for set "${set.name}"`} />
+        <title>{set.name} • Poké Collector</title>
+        <meta
+          name="description"
+          content={`${set.name} • Track your progress`}
+        />
         <link rel="icon" href={set.images.symbol} />
       </Head>
 
