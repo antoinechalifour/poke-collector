@@ -33,10 +33,8 @@ export const SetDetails = ({
         position: sticky;
         top: 62px;
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        display: grid;
+        grid-template-rows: 1fr minmax(250px, auto);
         width: 100%;
         min-height: calc(100vh - 62px);
       }
@@ -44,6 +42,7 @@ export const SetDetails = ({
       section div {
         position: relative;
         z-index: 1;
+        margin: auto 0;
 
         display: flex;
         flex-direction: column;
