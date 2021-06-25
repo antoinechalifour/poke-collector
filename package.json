@@ -11,6 +11,7 @@
   "dependencies": {
     "@auth0/nextjs-auth0": "^1.4.0",
     "axios": "^0.21.1",
+    "basic-auth": "^2.0.1",
     "dotenv": "^10.0.0",
     "knex": "^0.95.6",
     "next": "11.0.0",

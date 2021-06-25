@@ -1,22 +1,22 @@
 import { makeProgress } from "./Progress";
 
 export const ComputeSetStats =
-  (collections, setOverviews) => async (collectorId, setId) => {
-    const [collection, setOverview] = await Promise.all([
+  (collections, setSummaries) => async (collectorId, setId) => {
+    const [collection, setSummary] = await Promise.all([
       collections.ofCollectorAndSet(collectorId, setId),
-      setOverviews.ofSetId(setId),
+      setSummaries.ofSetId(setId),
     ]);
 
     const collectedCards = new Set(collection?.cards || []);
     const collectedCardsCount = collectedCards.size;
     const progress = makeProgress(
       collectedCardsCount,
-      setOverview.total + setOverview.secrets
+      setSummary.total + setSummary.secrets
     );
 
     const byRarity = {};
 
-    for (const [rarity, cards] of Object.entries(setOverview.cards)) {
+    for (const [rarity, cards] of Object.entries(setSummary.cards)) {
       let count = 0;
 
       cards.forEach((id) => {

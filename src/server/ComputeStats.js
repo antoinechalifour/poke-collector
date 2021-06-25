@@ -1,8 +1,8 @@
 export const ComputeStats =
-  (setOverviews, collections) => async (collectorId) => {
+  (setSummaries, collections) => async (collectorId) => {
     const [userCollections, sets] = await Promise.all([
       collections.ofCollector(collectorId),
-      setOverviews.all(),
+      setSummaries.all(),
     ]);
 
     const result = {};
