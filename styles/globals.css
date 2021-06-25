@@ -24,12 +24,12 @@ html {
 body {
   font-size: 1.6rem;
   line-height: 1.4;
-  background: #222;
+  background: #252232;
   color: #fff;
 }
 
 a {
-  color: #FF8FF0;
+  color: #abdfff;
 }
 
 * {
@@ -77,41 +77,41 @@ a {
 }
 
 .Grass-background {
-  background: rgba(130, 210, 96, .1);
+  background: rgb(130 210 96 / 10%);
 }
 
 .Fire-background {
-  background: rgba(255, 77, 38, .1);
+  background: rgb(255 77 38 / 10%);
 }
 
 .Water-background {
-  background: rgba(58, 163, 255, .1);
+  background: rgb(58 163 255 / 10%);
 }
 
 .Psychic-background {
-  background: rgba(255, 96, 163, .1);
+  background: rgb(255 96 163 / 10%);
 }
 
 .Fighting-background {
-  background: rgba(195, 96, 77, .1);
+  background: rgb(195 96 77 / 10%);
 }
 
 .Darkness-background {
-  background: rgba(130, 96, 77, .1);
+  background: rgb(130 96 77 / 10%);
 }
 
 .Metal-background {
-  background: rgba(179, 179, 195, .1);
+  background: rgb(179 179 195 / 10%);
 }
 
 .Lightning-background {
-  background: rgba(255, 210, 58, .1);
+  background: rgb(255 210 58 / 10%);
 }
 
 .Dragon-background {
-  background: rgba(130, 113, 240, .1);
+  background: rgb(130 113 240 / 10%);
 }
 
 .Fairy-background {
-  background: rgba(240, 163, 240, .1);
+  background: rgb(240 163 240 / 10%);
 }

@@ -52,7 +52,7 @@ export const Card = ({
           border-radius: 1rem;
           overflow: hidden;
 
-          background: rgba(0, 0, 0, 0.75);
+          background: #08081b;
         }
 
         img {

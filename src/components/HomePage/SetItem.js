@@ -23,7 +23,7 @@ export const SetItem = ({ id, name, images, series, releaseDate, total }) => (
     <style jsx>{`
       section {
         border-radius: 1rem;
-        background: #171717;
+        background: #08081b;
         overflow: hidden;
       }
 

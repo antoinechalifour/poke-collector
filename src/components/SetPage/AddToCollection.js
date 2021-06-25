@@ -37,23 +37,24 @@ export const AddToCollection = ({ cardId, set }) => {
           bottom: 0;
           width: 100%;
           padding: 1rem 2rem;
+          border-radius: 1rem;
+          border: none;
 
           font-size: 1.4rem;
           font-family: inherit;
           text-transform: uppercase;
           font-weight: bold;
-          cursor: pointer;
-          background: rgba(14, 51, 236, 0.75);
-          border-radius: 1rem;
-          border: none;
-          color: #fff;
-          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
 
+          color: rgb(0 0 0 / 90%);
+          background: rgb(230 29 196 / 80%);
+          text-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+
+          cursor: pointer;
           transition: padding 0.25s ease;
         }
 
         button:hover {
-          padding-bottom: 1.5rem;
+          padding: 1.2rem 2rem;
         }
       `}</style>
     </button>

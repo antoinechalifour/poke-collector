@@ -14,7 +14,7 @@ export const SearchBar = ({ onChange }) => (
         border-radius: 1rem;
         padding: 2rem;
 
-        background: #171717;
+        background: rgb(8 8 27 / 75%);
       }
 
       label {
@@ -31,13 +31,13 @@ export const SearchBar = ({ onChange }) => (
         font-size: inherit;
         color: #fff;
         outline: none;
-        border: 2px solid rgba(255, 255, 255, 0.15);
+        border: 2px solid rgb(255 255 255 / 15%);
         font-weight: 600;
         transition: border-color 0.2s ease;
       }
 
       input:focus {
-        border-color: rgba(255, 215, 0, 0.5);
+        border-color: rgba(255 215 0 / 50%);
       }
     `}</style>
   </form>

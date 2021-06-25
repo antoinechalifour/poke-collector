@@ -19,7 +19,7 @@ export const CollectedBadge = ({ cardId, set }) => {
 
           display: inline-block;
           padding: 2rem;
-          border: 2px solid blue;
+          border: 2px solid rgb(230 29 196);
           border-radius: 2rem;
 
           text-align: center;
@@ -28,14 +28,15 @@ export const CollectedBadge = ({ cardId, set }) => {
           font-size: 3rem;
           text-transform: uppercase;
           letter-spacing: 2px;
-          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+          text-shadow: 0 1px 3px rgb(0 0 0 / 25%);
 
-          background: rgba(0, 0, 255, 0.75);
-          color: #fff;
+          background: rgb(230 29 196 / 75%);
+          color: rgb(0 0 0 / 90%);
 
           box-shadow: inset 0 2px 3px #fff,
-            inset 0 -2px 3px rgba(255, 255, 255, 0.5),
-            0 1px 6px rgba(0, 0, 0, 0.5);
+            inset 0 2px 6px rgb(255 255 255 / 75%),
+            inset 0 -2px 3px rgb(255 255 255 / 50%),
+            inset 0 -2px 6px rgb(255 255 255 / 50%), 0 1px 6px rgb(0 0 0 / 50%);
           transform-origin: top left;
           transform: rotate(-15deg) translate(-50%, -50%);
         }

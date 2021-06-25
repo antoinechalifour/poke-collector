@@ -15,7 +15,7 @@ export const CardDescription = ({ type, children }) => (
       }
 
       blockquote.default-background {
-        background: rgba(255, 255, 255, 0.05);
+        background: rgb(255 255 255 / 5%);
       }
     `}</style>
   </>
