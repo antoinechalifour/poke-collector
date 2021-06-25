@@ -10,9 +10,10 @@ export default async function collectionStatsEndpoint(req, res) {
   const { user } = getSession(req, res);
 
   try {
-    const collections = CollectionsSQLAdapter(connection);
-    const setSummaries = SetSummariesSQLAdapter(connection);
-    const computeStats = ComputeSetStats(collections, setSummaries);
+    const computeStats = ComputeSetStats(
+      CollectionsSQLAdapter(connection),
+      SetSummariesSQLAdapter(connection)
+    );
 
     res.status(200).json(await computeStats(user.sub, req.query.setId));
   } finally {

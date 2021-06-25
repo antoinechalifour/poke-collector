@@ -9,9 +9,10 @@ export default async function overallStatsEndpoint(req, res) {
   const connection = connect();
 
   try {
-    const setSummaries = SetSummariesSQLAdapter(connection);
-    const collections = CollectionsSQLAdapter(connection);
-    const computeStats = ComputeStats(setSummaries, collections);
+    const computeStats = ComputeStats(
+      SetSummariesSQLAdapter(connection),
+      CollectionsSQLAdapter(connection)
+    );
 
     res.json(await computeStats(user.sub));
   } finally {

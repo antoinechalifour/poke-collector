@@ -9,10 +9,10 @@ export default async function collectionCardEndpoint(req, res) {
   const connection = connect();
 
   try {
-    const collections = CollectionsSQLAdapter(connection);
-
     if (req.method === "DELETE") {
-      const removeCardFromCollection = RemoveCardFromCollection(collections);
+      const removeCardFromCollection = RemoveCardFromCollection(
+        CollectionsSQLAdapter(connection)
+      );
       await removeCardFromCollection(
         user.sub,
         req.query.setId,
