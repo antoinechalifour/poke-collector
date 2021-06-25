@@ -9,17 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^1.4.0",
-    "axios": "^0.21.1",
-    "basic-auth": "^2.0.1",
-    "dotenv": "^10.0.0",
-    "knex": "^0.95.6",
-    "next": "11.0.0",
-    "pg": "^8.6.0",
+    "@auth0/nextjs-auth0": "1.4.0",
+    "axios": "0.21.1",
+    "basic-auth": "2.0.1",
+    "dotenv": "10.0.0",
+    "fuse.js": "6.4.6",
+    "knex": "0.95.6",
+    "lodash.throttle": "^4.1.1",
+    "next": "11.0.1",
+    "pg": "8.6.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "reset.css": "^2.0.2",
-    "swr": "^0.5.6"
+    "reset.css": "2.0.2",
+    "swr": "0.5.6"
   },
   "devDependencies": {
     "eslint": "7.29.0",

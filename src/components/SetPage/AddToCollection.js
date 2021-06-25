@@ -1,22 +1,31 @@
 import axios from "axios";
 import { mutate } from "swr";
 
+import { useCardAnimationManager } from "./CardAnimationManager";
+
 const addCardMutator = (cardId) => (collection) => ({
   ...collection,
   cards: [...collection.cards, cardId],
 });
 
-export const AddToCollection = ({ cardId, set }) => {
-  const handleClick = () => {
-    mutate(`/api/me/sets/${set.id}/collection`, addCardMutator(cardId), false);
+const useAddToCollection = (cardId, set) => {
+  const { shouldAnimate } = useCardAnimationManager();
 
-    return axios
-      .post(`/api/me/sets/${set.id}/collection`, { cardId })
-      .then(() => {
-        mutate(`/api/me/sets/${set.id}/collection`);
-        mutate(`/api/me/sets/${set.id}/collection/stats`);
-      });
+  const handleClick = async () => {
+    mutate(`/api/me/sets/${set.id}/collection`, addCardMutator(cardId), false);
+    shouldAnimate(cardId);
+
+    await axios.post(`/api/me/sets/${set.id}/collection`, { cardId });
+
+    mutate(`/api/me/sets/${set.id}/collection`);
+    mutate(`/api/me/sets/${set.id}/collection/stats`);
   };
+
+  return { handleClick };
+};
+
+export const AddToCollection = ({ cardId, set }) => {
+  const { handleClick } = useAddToCollection(cardId, set);
 
   return (
     <button onClick={handleClick}>

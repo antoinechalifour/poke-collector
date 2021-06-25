@@ -1,13 +1,18 @@
+import { memo } from "react";
 import { SetDetails } from "./Set";
 import { AllCards } from "./AllCards";
-import { SetStats } from "./SetStats";
+import { CardAnimationManager } from "./CardAnimationManager";
+
+const AllCardsMemo = memo(AllCards);
 
 export const SetPage = ({ set, cards }) => (
   <>
     <div>
       <SetDetails {...set} />
 
-      <AllCards cards={cards} />
+      <CardAnimationManager>
+        <AllCardsMemo cards={cards} />
+      </CardAnimationManager>
     </div>
 
     <style jsx>{`
