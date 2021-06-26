@@ -36,13 +36,7 @@ export const AddToCollection = ({ cardId, set }) => {
           position: absolute;
           bottom: 0;
 
-          transition: transform 0.25s ease;
           box-shadow: 0 -2px 4px rgb(0 0 0 / 40%);
-          transform: scale(1);
-        }
-
-        button:hover {
-          transform: scale(1.02);
         }
       `}</style>
     </button>

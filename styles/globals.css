@@ -140,13 +140,21 @@ a {
   color: var(--color-background);
   background: rgb(var(--rgb-action-secondary) / var(--button-background-opacity));
   text-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+  text-decoration: none;
 
   cursor: pointer;
+  transition: transform 0.25s ease;
+  transform: scale(1);
+}
+
+.button:hover {
+  transform: scale(1.02);
 }
 
 .button-fluid {
   display: block;
   width: 100%;
+  text-align: center;
 }
 
 .label {
