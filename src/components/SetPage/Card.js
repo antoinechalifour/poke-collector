@@ -18,21 +18,25 @@ export const Card = ({
   set,
   tcgplayer,
 }) => {
-  const [primaryType] = types;
+  const [primaryType = "default"] = types;
   const { user } = useUser();
 
   return (
-    <section>
-      <header>
+    <section className="card positioning-parent">
+      <header className="positioning-parent">
         <CardImage url={images.small} alt={name} />
 
         {user && <CollectionStatus cardId={id} set={set} />}
       </header>
 
-      <div>
+      <div className="positioning-parent card-content grid grid-sm">
         <CardTypeBackground types={types} />
 
-        <h2 className={primaryType && `${primaryType}-text`}>{name}</h2>
+        <h2
+          className={`typography-heading2 typography-center ${primaryType}-text`}
+        >
+          {name}
+        </h2>
 
         <CardDescription type={primaryType}>{flavorText}</CardDescription>
 
@@ -47,36 +51,7 @@ export const Card = ({
 
       <style jsx>{`
         section {
-          position: relative;
-          padding: 1rem;
-          border-radius: 1rem;
-          overflow: hidden;
-
-          background: #08081b;
-        }
-
-        img {
-          display: block;
-          width: 100%;
-        }
-
-        h2 {
-          text-align: center;
-          text-transform: uppercase;
-          font-weight: 600;
-          font-size: 2.4rem;
-        }
-
-        header {
-          position: relative;
-        }
-
-        div {
-          position: relative;
-
-          display: grid;
-          grid-gap: 1.5rem;
-          padding: 2rem;
+          padding: 0.5rem;
         }
       `}</style>
     </section>

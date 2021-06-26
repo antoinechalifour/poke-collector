@@ -11,6 +11,7 @@ export const CollectionProgress = ({ setId }) => {
   return (
     <div className="root">
       <div style={{ width: `${progress}%` }} />
+
       <style jsx>{`
         .root {
           position: absolute;
@@ -19,14 +20,14 @@ export const CollectionProgress = ({ setId }) => {
           right: 0;
 
           height: 0.3rem;
-          background: #444;
+          background: var(--color-background-lighter);
         }
 
         .root div {
           position: absolute;
           height: 100%;
           left: 0;
-          background: gold;
+          background: var(--color-accent);
         }
       `}</style>
     </div>

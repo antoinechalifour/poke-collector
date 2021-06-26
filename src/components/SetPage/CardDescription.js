@@ -1,17 +1,14 @@
-export const CardDescription = ({ type, children }) => (
+export const CardDescription = ({ type = "default", children }) => (
   <>
-    <blockquote className={type ? `${type}-background` : "default-background"}>
+    <blockquote className={`place-center-x card-content ${type}-background`}>
       {children || "No description available"}
     </blockquote>
 
     <style jsx>{`
       blockquote {
-        display: flex;
-        align-items: center;
         height: 12rem;
-        padding: 2rem;
         margin: 0 -2rem;
-        border-radius: 1rem;
+        border-radius: var(--size-corner);
       }
 
       blockquote.default-background {

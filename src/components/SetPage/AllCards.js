@@ -41,10 +41,10 @@ export const AllCards = ({ cards }) => {
   const { results, handleSearch } = useCardsSearch(cards);
 
   return (
-    <section>
+    <section className="grid grid-default">
       <SearchBar onChange={handleSearch} />
 
-      <ol>
+      <ol className="grid grid-default">
         {results.map((card) => (
           <li key={card.id}>
             <Card {...card} />
@@ -54,15 +54,11 @@ export const AllCards = ({ cards }) => {
 
       <style jsx>{`
         section {
-          display: grid;
           grid-template-rows: auto 1fr;
           padding: 2rem;
-          grid-gap: 3rem;
         }
 
         ol {
-          display: grid;
-          grid-gap: 2rem;
           grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         }
       `}</style>

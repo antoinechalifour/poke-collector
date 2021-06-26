@@ -1,5 +1,5 @@
 export const CardSumary = ({ number, set, rarity, artist, tcgplayer }) => (
-  <dl>
+  <dl className="grid grid-xs summary">
     <dt>Number</dt>
     <dd>
       {number}/{set.printedTotal}
@@ -34,16 +34,9 @@ export const CardSumary = ({ number, set, rarity, artist, tcgplayer }) => (
 
     <style jsx>{`
       dl {
-        display: grid;
         align-content: start;
         grid-template-columns: auto 1fr;
-        grid-gap: 0.5rem 1rem;
         min-height: 13rem;
-      }
-
-      dt {
-        text-align: right;
-        font-weight: 600;
       }
     `}</style>
   </dl>

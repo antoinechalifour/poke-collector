@@ -22,7 +22,6 @@ export const CardTypeBackground = ({ types }) => {
         div :global(svg) {
           display: block;
           width: 50%;
-          margin: auto;
         }
       `}</style>
     </div>

@@ -8,7 +8,7 @@ export const NavBar = () => {
   const { user } = useUser();
 
   return (
-    <nav>
+    <nav className="grid grid-default grid-center-x card-content">
       <Link href="/">
         <a aria-label="Go back to home page">
           <PokeBall />
@@ -27,11 +27,7 @@ export const NavBar = () => {
           top: 0;
           z-index: 10;
 
-          display: grid;
-          align-items: center;
           grid-template-columns: auto 1fr auto;
-          grid-gap: 2rem;
-          padding: 2rem;
 
           background: rgb(8 8 27 / 75%);
           backdrop-filter: blur(5px);

@@ -1,15 +1,15 @@
 import Image from "next/image";
 
 export const SetLogo = ({ logoUrl }) => (
-  <div>
+  <div className="aspect-ratio positioning-parent">
     <Image src={logoUrl} objectFit="contain" layout="fill" alt="Series logo" />
 
     <style jsx>{`
       div {
-        position: relative;
-        margin: auto;
+        --aspect-ratio-width: 4;
+        --aspect-ratio-height: 3;
+
         width: 40%;
-        aspect-ratio: 4/3;
       }
     `}</style>
   </div>

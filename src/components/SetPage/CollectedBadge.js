@@ -3,23 +3,20 @@ import { useCardAnimationManager } from "./CardAnimationManager";
 
 export const CollectedBadge = ({ cardId, set }) => {
   const { isAnimated, doneAnimating } = useCardAnimationManager();
+  const animationClass = isAnimated(cardId) ? "is-animated" : "";
 
   return (
     <p
-      className={isAnimated(cardId) && "is-animated"}
+      className={`positioning-center ${animationClass}`}
       onAnimationEnd={doneAnimating}
     >
       COLLECTED
       <RemoveFromCollection cardId={cardId} set={set} />
       <style jsx>{`
         p {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-
           display: inline-block;
           padding: 2rem;
-          border: 2px solid rgb(230 29 196);
+          border: 2px solid rgb(var(--rgb-action-secondary));
           border-radius: 2rem;
 
           text-align: center;
@@ -30,13 +27,13 @@ export const CollectedBadge = ({ cardId, set }) => {
           letter-spacing: 2px;
           text-shadow: 0 1px 3px rgb(0 0 0 / 25%);
 
-          background: rgb(230 29 196 / 75%);
+          background: rgb(var(--rgb-action-secondary) / 85%);
           color: rgb(0 0 0 / 90%);
 
           box-shadow: inset 0 2px 3px #fff,
             inset 0 2px 6px rgb(255 255 255 / 75%),
             inset 0 -2px 3px rgb(255 255 255 / 50%),
-            inset 0 -2px 6px rgb(255 255 255 / 50%), 0 1px 6px rgb(0 0 0 / 50%);
+            inset 0 -2px 6px rgb(255 255 255 / 50%), 0 2px 6px rgb(0 0 0 / 50%);
           transform-origin: top left;
           transform: rotate(-15deg) translate(-50%, -50%);
         }

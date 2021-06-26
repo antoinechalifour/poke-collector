@@ -1,7 +1,7 @@
 import { SetLogo } from "./SetLogo";
 import { SetTitle } from "./SetTitle";
 import { SetSummary } from "./SetSummary";
-import { SetStats } from "@/components/SetPage/SetStats";
+import { SetStats } from "./SetStats";
 
 export const SetDetails = ({
   id,
@@ -13,8 +13,8 @@ export const SetDetails = ({
   total,
 }) => (
   <div>
-    <section>
-      <div>
+    <section className="grid">
+      <div className="positioning-parent">
         <SetLogo logoUrl={images.logo} />
         <SetTitle name={name} symbolUrl={images.symbol} />
         <SetSummary
@@ -33,15 +33,12 @@ export const SetDetails = ({
         position: sticky;
         top: 62px;
 
-        display: grid;
         grid-template-rows: 1fr minmax(250px, auto);
-        width: 100%;
         min-height: calc(100vh - 62px);
       }
 
       section div {
         position: relative;
-        z-index: 1;
         margin: auto 0;
 
         display: flex;

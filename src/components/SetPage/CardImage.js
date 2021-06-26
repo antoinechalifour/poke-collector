@@ -1,12 +1,21 @@
 import Image from "next/image";
 
+const test = `
+  @supports not (aspect-ratio: auto) {
+    div {
+      padding-bottom: 139%;
+    }
+  }
+`;
+
 export const CardImage = ({ url, alt }) => (
-  <div>
-    <Image loading="eager" layout="fill" src={url} alt={alt} />
+  <div className="aspect-ratio positioning-parent">
+    <Image layout="fill" src={url} alt={alt} />
+
     <style jsx>{`
       div {
-        position: relative;
-        aspect-ratio: 245/342;
+        --aspect-ratio-width: 245;
+        --aspect-ratio-height: 342;
       }
     `}</style>
   </div>

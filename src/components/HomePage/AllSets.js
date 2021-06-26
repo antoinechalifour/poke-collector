@@ -1,7 +1,7 @@
 import { SetItem } from "./SetItem";
 
 export const AllSets = ({ sets }) => (
-  <ol>
+  <ol className="page-container grid grid-default">
     {sets.map((set) => (
       <li key={set.id}>
         <SetItem {...set} />
@@ -10,11 +10,7 @@ export const AllSets = ({ sets }) => (
 
     <style jsx>{`
       ol {
-        display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        grid-gap: 2rem;
-        max-width: 1400px;
-        margin: auto;
       }
     `}</style>
   </ol>

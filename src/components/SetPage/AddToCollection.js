@@ -28,33 +28,21 @@ export const AddToCollection = ({ cardId, set }) => {
   const { handleClick } = useAddToCollection(cardId, set);
 
   return (
-    <button onClick={handleClick}>
+    <button className="button button-fluid" onClick={handleClick}>
       Add to collection
       <style jsx>{`
         button {
+          --button-background-opacity: 95%;
           position: absolute;
-          display: block;
           bottom: 0;
-          width: 100%;
-          padding: 1rem 2rem;
-          border-radius: 1rem;
-          border: none;
 
-          font-size: 1.4rem;
-          font-family: inherit;
-          text-transform: uppercase;
-          font-weight: bold;
-
-          color: rgb(0 0 0 / 90%);
-          background: rgb(230 29 196 / 80%);
-          text-shadow: 0 1px 3px rgb(0 0 0 / 20%);
-
-          cursor: pointer;
-          transition: padding 0.25s ease;
+          transition: transform 0.25s ease;
+          box-shadow: 0 -2px 4px rgb(0 0 0 / 40%);
+          transform: scale(1);
         }
 
         button:hover {
-          padding: 1.2rem 2rem;
+          transform: scale(1.02);
         }
       `}</style>
     </button>

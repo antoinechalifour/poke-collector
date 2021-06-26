@@ -2,7 +2,7 @@ let ICON_SIZE = 150;
 
 export const TYPES = {
   Grass: (
-    <svg viewBox="0 0 512 512" fill="currentColor">
+    <svg viewBox="0 0 512 512" fill="currentColor" className="block-centered">
       <path
         id="grass"
         fillRule="evenodd"
@@ -12,7 +12,7 @@ export const TYPES = {
     </svg>
   ),
   Fire: (
-    <svg viewBox="0 0 512 512" fill="currentColor">
+    <svg viewBox="0 0 512 512" fill="currentColor" className="block-centered">
       <path
         id="fire"
         fillRule="evenodd"
@@ -22,7 +22,7 @@ export const TYPES = {
     </svg>
   ),
   Water: (
-    <svg viewBox="0 0 512 512" fill="currentColor">
+    <svg viewBox="0 0 512 512" fill="currentColor" className="block-centered">
       <path
         id="water"
         fillRule="evenodd"
@@ -32,7 +32,7 @@ export const TYPES = {
     </svg>
   ),
   Psychic: (
-    <svg viewBox="0 0 512 512" fill="currentColor">
+    <svg viewBox="0 0 512 512" fill="currentColor" className="block-centered">
       <path
         id="psychic"
         fillRule="evenodd"
@@ -42,7 +42,7 @@ export const TYPES = {
     </svg>
   ),
   Fighting: (
-    <svg viewBox="0 0 512 512" fill="currentColor">
+    <svg viewBox="0 0 512 512" fill="currentColor" className="block-centered">
       <path
         id="fighting"
         fillRule="evenodd"
@@ -52,7 +52,7 @@ export const TYPES = {
     </svg>
   ),
   Darkness: (
-    <svg viewBox="0 0 512 512" fill="currentColor">
+    <svg viewBox="0 0 512 512" fill="currentColor" className="block-centered">
       <path
         id="dark"
         fillRule="evenodd"
@@ -62,7 +62,7 @@ export const TYPES = {
     </svg>
   ),
   Metal: (
-    <svg viewBox="0 0 512 512" fill="currentColor">
+    <svg viewBox="0 0 512 512" fill="currentColor" className="block-centered">
       <path
         id="steel"
         fillRule="evenodd"
@@ -72,7 +72,7 @@ export const TYPES = {
     </svg>
   ),
   Colorless: (
-    <svg viewBox="0 0 512 512" fill="currentColor">
+    <svg viewBox="0 0 512 512" fill="currentColor" className="block-centered">
       <path
         id="normal"
         fillRule="evenodd"
@@ -82,7 +82,7 @@ export const TYPES = {
     </svg>
   ),
   Lightning: (
-    <svg viewBox="0 0 512 512" fill="currentColor">
+    <svg viewBox="0 0 512 512" fill="currentColor" className="block-centered">
       <path
         id="electric"
         fillRule="evenodd"
@@ -92,7 +92,7 @@ export const TYPES = {
     </svg>
   ),
   Dragon: (
-    <svg viewBox="0 0 512 512" fill="currentColor">
+    <svg viewBox="0 0 512 512" fill="currentColor" className="block-centered">
       <path
         id="dragon"
         fillRule="evenodd"
@@ -102,7 +102,7 @@ export const TYPES = {
     </svg>
   ),
   Fairy: (
-    <svg viewBox="0 0 512 512" fill="currentColor">
+    <svg viewBox="0 0 512 512" fill="currentColor" className="block-centered">
       <path
         id="fairy"
         fillRule="evenodd"

@@ -1,13 +1,13 @@
 import Image from "next/image";
 
 export const SetLogo = ({ url, alt }) => (
-  <div>
+  <div className="aspect-ratio positioning-parent">
     <Image layout="fill" src={url} alt={alt} objectFit="contain" />
 
     <style jsx>{`
       div {
-        position: relative;
-        aspect-ratio: 4/3;
+        --aspect-ratio-width: 4;
+        --aspect-ratio-height: 3;
       }
     `}</style>
   </div>

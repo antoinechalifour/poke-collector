@@ -6,13 +6,13 @@ import { SetTitle } from "./SetTitle";
 import { CollectionProgress } from "./CollectionProgress";
 
 export const SetItem = ({ id, name, images, series, releaseDate, total }) => (
-  <section>
-    <header>
+  <section className="card">
+    <header className="positioning-parent">
       <CollectionProgress setId={id} />
       <SetLogo alt={name} url={images.logo} />
     </header>
 
-    <div>
+    <div className="grid grid-sm card-content">
       <SetTitle symbolUrl={images.symbol} name={name} />
       <SetSummary series={series} releaseDate={releaseDate} total={total} />
       <Link href={`/sets/${id}`}>
@@ -21,21 +21,8 @@ export const SetItem = ({ id, name, images, series, releaseDate, total }) => (
     </div>
 
     <style jsx>{`
-      section {
-        border-radius: 1rem;
-        background: #08081b;
-        overflow: hidden;
-      }
-
       header {
-        position: relative;
         padding: 1rem 1rem 0;
-      }
-
-      div {
-        display: grid;
-        grid-gap: 1rem;
-        padding: 2rem;
       }
 
       a {

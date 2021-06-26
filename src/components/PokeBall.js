@@ -6,7 +6,7 @@ export const PokeBall = () => (
 
         display: block;
         width: 3rem;
-        aspect-ratio: 1;
+        height: 3rem;
         border: 2px solid #111;
         border-radius: 50%;
         overflow: hidden;
@@ -43,7 +43,7 @@ export const PokeBall = () => (
 
         display: block;
         width: 0.8rem;
-        aspect-ratio: 1;
+        height: 0.8rem;
         border: 2px solid #111;
         border-radius: 50%;
 

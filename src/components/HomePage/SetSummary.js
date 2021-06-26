@@ -1,5 +1,5 @@
 export const SetSummary = ({ series, releaseDate, total }) => (
-  <dl>
+  <dl className="grid grid-sm details">
     <dt>Series</dt>
     <dd>{series}</dd>
 
@@ -8,17 +8,5 @@ export const SetSummary = ({ series, releaseDate, total }) => (
 
     <dt>Number of cards</dt>
     <dd>{total}</dd>
-
-    <style jsx>{`
-      dl {
-        display: grid;
-        grid-gap: 1rem;
-      }
-
-      dt {
-        font-weight: bold;
-        font-size: 1.2rem;
-      }
-    `}</style>
   </dl>
 );
