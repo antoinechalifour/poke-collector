@@ -92,6 +92,10 @@ body {
       Components
 *********************/
 
+svg path {
+  fill: var(--color-text);
+}
+
 a {
   color: var(--color-text-darker);
 }

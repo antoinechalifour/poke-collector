@@ -1,5 +1,6 @@
 import axios from "axios";
 import { mutate } from "swr";
+import { TiMinus } from "react-icons/ti";
 
 const removeCardMutator = (cardId) => (collection) => ({
   ...collection,
@@ -24,7 +25,7 @@ export const RemoveFromCollection = ({ cardId, set }) => {
 
   return (
     <button onClick={handleClick} aria-label="Remove from collection">
-      ❌
+      <TiMinus size="1.6rem" />
       <style jsx>{`
         button {
           position: absolute;
@@ -40,7 +41,6 @@ export const RemoveFromCollection = ({ cardId, set }) => {
 
           font-size: 1.2rem;
           line-height: 1;
-          text-indent: -3px;
           cursor: pointer;
           background: #171717;
 
@@ -50,6 +50,10 @@ export const RemoveFromCollection = ({ cardId, set }) => {
 
         button:hover {
           transform: translate(50%, -50%) scale(1.1);
+        }
+
+        button :global(path) {
+          fill: var(--color-accent-secondary);
         }
       `}</style>
     </button>
