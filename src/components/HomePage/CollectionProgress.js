@@ -3,7 +3,7 @@ import useSWR from "swr";
 
 export const CollectionProgress = ({ setId }) => {
   const { user } = useUser();
-  const { data } = useSWR(user ? "/api/me/collection/stats" : null);
+  const { data } = useSWR(user ? "/api/me/collection/progress" : null);
 
   if (!data) return null;
   const { progress, collected, total } = data[setId];

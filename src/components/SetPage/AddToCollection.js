@@ -18,7 +18,7 @@ const useAddToCollection = (cardId, set) => {
     await axios.post(`/api/me/sets/${set.id}/collection`, { cardId });
 
     mutate(`/api/me/sets/${set.id}/collection`);
-    mutate(`/api/me/sets/${set.id}/collection/stats`);
+    mutate(`/api/me/sets/${set.id}/collection/progress`);
   };
 
   return { handleClick };

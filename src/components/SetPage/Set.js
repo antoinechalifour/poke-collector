@@ -1,7 +1,7 @@
 import { SetLogo } from "./SetLogo";
 import { SetTitle } from "./SetTitle";
 import { SetSummary } from "./SetSummary";
-import { SetStats } from "./SetStats";
+import { SetProgress } from "./SetProgress";
 
 export const SetDetails = ({
   id,
@@ -25,7 +25,7 @@ export const SetDetails = ({
         />
       </div>
 
-      <SetStats setId={id} />
+      <SetProgress setId={id} />
     </section>
 
     <style jsx>{`

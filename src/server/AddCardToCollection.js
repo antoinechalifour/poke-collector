@@ -1,4 +1,4 @@
-import { emptyCollection } from "./Collection";
+import { addCard, emptyCollection } from "./Collection";
 
 export const AddCardToCollection =
   (collections) => async (userId, setId, cardId) => {
@@ -6,7 +6,7 @@ export const AddCardToCollection =
 
     if (!collection) collection = emptyCollection(userId, setId);
 
-    collection.cards = [...new Set([...collection.cards, cardId])];
+    addCard(collection, cardId);
 
     await collections.save(collection);
   };

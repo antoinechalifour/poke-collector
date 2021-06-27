@@ -6,10 +6,10 @@ import { ProgressRow } from "./ProgressRow";
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
-export const SetStats = ({ setId }) => {
+export const SetProgress = ({ setId }) => {
   const { user } = useUser();
   const { data } = useSWR(
-    user ? `/api/me/sets/${setId}/collection/stats` : null,
+    user ? `/api/me/sets/${setId}/collection/progress` : null,
     fetcher
   );
 

@@ -1,5 +1,5 @@
 const mapper = (row) => ({
-  setId: row.id,
+  id: row.id,
   total: row.total,
   secrets: row.secrets,
   cards: row.cards,

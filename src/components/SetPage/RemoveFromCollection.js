@@ -19,7 +19,7 @@ export const RemoveFromCollection = ({ cardId, set }) => {
       .delete(`/api/me/sets/${set.id}/collection/${cardId}`)
       .then(() => {
         mutate(`/api/me/sets/${set.id}/collection`);
-        mutate(`/api/me/sets/${set.id}/collection/stats`);
+        mutate(`/api/me/sets/${set.id}/collection/progress`);
       });
   };
 
