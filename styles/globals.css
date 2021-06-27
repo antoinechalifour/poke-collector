@@ -2,6 +2,7 @@
   --rgb-action-secondary: 254 29 127;
 
   --color-text: #fff;
+  --color-text-reverse: #171717;
   --color-text-darker: #BAAEFF;
   --color-accent: rgb(255, 215, 0);
   --color-accent-secondary: rgb(var(--rgb-action-secondary));
@@ -137,7 +138,7 @@ a {
   text-transform: uppercase;
   font-weight: bold;
 
-  color: var(--color-background);
+  color: var(--color-text-reverse);
   background: rgb(var(--rgb-action-secondary) / var(--button-background-opacity));
   text-shadow: 0 1px 3px rgb(0 0 0 / 20%);
   text-decoration: none;
