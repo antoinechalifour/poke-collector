@@ -1,7 +1,7 @@
 import { SetItem } from "./SetItem";
 
 export const AllSets = ({ sets }) => (
-  <ol className="page-container grid grid-default">
+  <ol className="grid grid-default">
     {sets.map((set) => (
       <li key={set.id}>
         <SetItem {...set} />

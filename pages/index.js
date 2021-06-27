@@ -4,8 +4,9 @@ import { HomePage } from "@/components/HomePage/HomePage";
 import { applyAppLayout } from "@/components/Layouts/AppLayout";
 import { SetsHTTPAdapter } from "@/server/SetsHTTPAdapter";
 import { http } from "@/server/http";
+import { RetrieveSetsBySeries } from "@/server/RetrieveSetsBySeries";
 
-export default function Home({ sets }) {
+export default function Home({ setsBySeries }) {
   return (
     <>
       <Head>
@@ -17,7 +18,7 @@ export default function Home({ sets }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HomePage sets={sets} />
+      <HomePage setsBySeries={setsBySeries} />
     </>
   );
 }
@@ -26,7 +27,11 @@ Home.getLayout = applyAppLayout;
 
 const aWeek = 60 * 60 * 24 * 7;
 
-export const getStaticProps = async () => ({
-  props: { sets: await SetsHTTPAdapter(http).all() },
-  revalidate: aWeek,
-});
+export const getStaticProps = async () => {
+  const retrieveSetsBySeries = RetrieveSetsBySeries(SetsHTTPAdapter(http));
+
+  return {
+    props: { setsBySeries: await retrieveSetsBySeries() },
+    revalidate: aWeek,
+  };
+};

@@ -18,3 +18,11 @@ export const aSetSummary = (overrides) => ({
   },
   ...overrides,
 });
+
+export const aSet = (overrides) => ({
+  id: "set-1",
+  name: "set-name",
+  series: "Sword & Shield",
+  releaseDate: "2000/01/01",
+  ...overrides,
+});
