@@ -104,6 +104,13 @@ a {
 .page-container {
   max-width: var(--size-page-width);
   margin: auto;
+  padding: 0 2rem;
+}
+
+@media (min-width: var(--size-page-width)) {
+  .page-container {
+    padding: 0;
+  }
 }
 
 .card {
