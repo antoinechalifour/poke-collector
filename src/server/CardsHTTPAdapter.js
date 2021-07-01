@@ -7,9 +7,10 @@ export const CardsHTTPAdapter = (http) => {
     let page = 1;
 
     while (true) {
+      const pricedAt = Date.now();
       const { data, pageSize, count } = await fetchPage(page);
 
-      yield data;
+      yield data.map((card) => Object.assign(card, { priced_at: pricedAt }));
 
       if (count < pageSize) return;
       else page += 1;

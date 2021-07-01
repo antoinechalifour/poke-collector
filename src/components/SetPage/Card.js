@@ -17,6 +17,7 @@ export const Card = ({
   number,
   set,
   tcgplayer,
+  priced_at,
 }) => {
   const [primaryType = "default"] = types;
   const { user } = useUser();
@@ -41,11 +42,13 @@ export const Card = ({
         <CardDescription type={primaryType}>{flavorText}</CardDescription>
 
         <CardSumary
+          cardId={id}
           number={number}
           set={set}
           artist={artist}
           rarity={rarity}
           tcgplayer={tcgplayer}
+          pricedAt={priced_at}
         />
       </div>
 

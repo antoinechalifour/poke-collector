@@ -1,4 +1,14 @@
-export const CardSumary = ({ number, set, rarity, artist, tcgplayer }) => (
+import { CardPrice } from "./CardPrice";
+
+export const CardSumary = ({
+  cardId,
+  number,
+  set,
+  rarity,
+  artist,
+  tcgplayer,
+  pricedAt,
+}) => (
   <dl className="grid grid-xs summary">
     <dt>Number</dt>
     <dd>
@@ -14,26 +24,46 @@ export const CardSumary = ({ number, set, rarity, artist, tcgplayer }) => (
     {tcgplayer?.prices.normal && (
       <>
         <dt>Price (normal)</dt>
-        <dd>${tcgplayer.prices.normal.market}</dd>
+        <dd>
+          <CardPrice
+            cardId={cardId}
+            price={tcgplayer.prices.normal.market}
+            timestamp={pricedAt}
+          />
+        </dd>
       </>
     )}
 
     {tcgplayer?.prices.reverseHolofoil && (
       <>
         <dt>Price (reverse)</dt>
-        <dd>${tcgplayer.prices.reverseHolofoil.market}</dd>
+        <dd>
+          <CardPrice
+            cardId={cardId}
+            price={tcgplayer.prices.reverseHolofoil.market}
+            timestamp={pricedAt}
+          />
+        </dd>
       </>
     )}
 
     {tcgplayer?.prices.holofoil && (
       <>
         <dt>Price (holographic)</dt>
-        <dd>${tcgplayer.prices.holofoil.market}</dd>
+        <dd>
+          <CardPrice
+            cardId={cardId}
+            price={tcgplayer.prices.holofoil.market}
+            timestamp={pricedAt}
+          />
+        </dd>
       </>
     )}
 
     <style jsx>{`
       dl {
+        position: relative;
+        z-index: 1;
         align-content: start;
         grid-template-columns: auto 1fr;
         min-height: 13rem;
