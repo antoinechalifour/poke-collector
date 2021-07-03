@@ -1,10 +1,17 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
-export const SecondaryLink = ({ href, children }) => (
+const ReactTooltip = dynamic(() => import("react-tooltip"), { ssr: false });
+
+export const SecondaryLink = ({ id, href, children, label }) => (
   <>
     <Link href={href}>
-      <a title={children}>{children}</a>
+      <a data-tip data-for={id} title={label || children}>
+        {children}
+      </a>
     </Link>
+
+    {label && <ReactTooltip id={id}>{label}</ReactTooltip>}
 
     <style jsx>{`
       a {
@@ -14,7 +21,7 @@ export const SecondaryLink = ({ href, children }) => (
         overflow: hidden;
         text-overflow: ellipsis;
         display: inline-block;
-        width: 100%;
+        max-width: 100%;
       }
     `}</style>
   </>

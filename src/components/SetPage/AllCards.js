@@ -1,3 +1,4 @@
+import flatMap from "lodash.flatmap";
 import { useSearch } from "@/client/search";
 import { SecondaryLink } from "@/components/SecondaryLink";
 import { CardGrid } from "@/components/CardGrid";
@@ -11,16 +12,42 @@ const fuseOptions = {
   keys: ["name", "rarity"],
 };
 
-const getExtraProps = ({ nationalPokedexNumbers = [] }) => {
-  if (!nationalPokedexNumbers[0]) return {};
+export const intersperse = (arr, inter) =>
+  flatMap(arr, (a, i) => (i ? [inter, a] : [a]));
+
+const getExtraProps = ({ number, nationalPokedexNumbers = [] }) => {
+  if (!nationalPokedexNumbers.length) return {};
 
   const extraSummary = [
     {
       label: "National n°",
       value: (
-        <SecondaryLink href={`/pokemon/${nationalPokedexNumbers[0]}`}>
-          {nationalPokedexNumbers[0]}
-        </SecondaryLink>
+        <div>
+          {intersperse(
+            nationalPokedexNumbers.map((nationalNumber) => (
+              <SecondaryLink
+                id={`link-${number}-${nationalNumber}`}
+                key={nationalNumber}
+                label="See all cards of this Pokémon"
+                href={`/pokemon/${nationalNumber}`}
+              >
+                {nationalNumber}
+              </SecondaryLink>
+            )),
+            <span>•</span>
+          )}
+
+          <style jsx>{`
+            div {
+              display: flex;
+              align-items: center;
+            }
+
+            span {
+              margin: 0 0.5ch;
+            }
+          `}</style>
+        </div>
       ),
     },
   ];
