@@ -30,7 +30,11 @@ function MyApp({ Component, pageProps }) {
     }
   }, []);
 
-  return <UserProvider>{getLayout(<Component {...pageProps} />)}</UserProvider>;
+  return (
+    <UserProvider>
+      {getLayout(<Component {...pageProps} />, pageProps)}
+    </UserProvider>
+  );
 }
 
 export default MyApp;

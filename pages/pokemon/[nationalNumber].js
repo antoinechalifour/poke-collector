@@ -27,7 +27,7 @@ export const getStaticPaths = () => ({
 });
 
 export const getStaticProps = async ({ params }) => {
-  let nationalNumber = params.nationalNumber;
+  const nationalNumber = params.nationalNumber;
   const [pokemon, cards] = await Promise.all([
     PokemonsHTTPAdapter(pokeApi).ofNationalNumber(nationalNumber),
     CardsHTTPAdapter(pokemonTcg).ofPokemon(nationalNumber),
@@ -38,6 +38,7 @@ export const getStaticProps = async ({ params }) => {
     props: {
       cards,
       pokemon,
+      subtitle: `#${nationalNumber} ${pokemon.name}`,
     },
   };
 };

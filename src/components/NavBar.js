@@ -4,7 +4,7 @@ import { useUser } from "@auth0/nextjs-auth0";
 import { PokeBall } from "./PokeBall";
 import { UserProfile } from "./UserProfile";
 
-export const NavBar = () => {
+export const NavBar = ({ subtitle }) => {
   const { user } = useUser();
 
   return (
@@ -15,7 +15,7 @@ export const NavBar = () => {
         </a>
       </Link>
 
-      <p>Poké Collector</p>
+      <p>Poké Collector {subtitle && <span>/ {subtitle}</span>}</p>
 
       {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
       {!user && <a href="/api/auth/login">Login</a>}
@@ -35,6 +35,10 @@ export const NavBar = () => {
 
         p {
           font-weight: bold;
+        }
+
+        span {
+          opacity: 0.75;
         }
       `}</style>
     </nav>

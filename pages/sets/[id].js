@@ -44,7 +44,7 @@ export const getStaticProps = async ({ params }) => {
   ]);
 
   return {
-    props: { set, cards },
+    props: { set, cards, subtitle: set.name },
     revalidate: anHour,
   };
 };

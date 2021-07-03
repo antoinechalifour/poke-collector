@@ -1,12 +1,14 @@
 import { NavBar } from "../NavBar";
-import { AppLoader } from "@/components/Layouts/AppLoader";
+import { AppLoader } from "./AppLoader";
 
-export const AppLayout = ({ children }) => (
+export const AppLayout = ({ children, subtitle }) => (
   <div>
-    <NavBar />
+    <NavBar subtitle={subtitle} />
     <AppLoader />
     <main>{children}</main>
   </div>
 );
 
-export const applyAppLayout = (page) => <AppLayout>{page}</AppLayout>;
+export const applyAppLayout = (page, props) => (
+  <AppLayout subtitle={props.subtitle}>{page}</AppLayout>
+);
