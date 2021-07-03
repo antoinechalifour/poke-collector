@@ -1,7 +1,7 @@
 import { AllSets } from "./AllSets";
 
 export const Series = ({ series, sets }) => (
-  <section className="page-container grid grid-default">
+  <section className="grid grid-default">
     <h2>{series}</h2>
     <AllSets sets={sets} />
 

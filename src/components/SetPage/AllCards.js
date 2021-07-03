@@ -1,48 +1,21 @@
-import { useMemo, useState } from "react";
-import throttle from "lodash.throttle";
-import Fuse from "fuse.js";
+import { useSearch } from "@/client/search";
 
 import { Card } from "./Card";
-import { SearchBar } from "./SearchBar";
+import { SearchCardBar } from "./SearchCardBar";
 
-const fuseOption = {
+const fuseOptions = {
   includeScore: true,
   useExtendedSearch: true,
   ignoreLocation: true,
   keys: ["name", "rarity"],
 };
 
-const useCardsSearch = (allCards) => {
-  const [searchResults, setSearchResults] = useState(allCards);
-  const fuse = useMemo(() => new Fuse(allCards, fuseOption), [allCards]);
-
-  const handleSearch = throttle(
-    (e) => {
-      const query = e.target.value;
-      const results = query
-        ? fuse
-            .search(query)
-            .filter((result) => result.score <= 0.35)
-            .map((x) => x.item)
-        : allCards;
-
-      console.log(fuse.search(query));
-
-      setSearchResults(results);
-    },
-    150,
-    { leading: false }
-  );
-
-  return { results: searchResults, handleSearch };
-};
-
 export const AllCards = ({ cards }) => {
-  const { results, handleSearch } = useCardsSearch(cards);
+  const { results, handleSearch } = useSearch(cards, fuseOptions);
 
   return (
     <section className="grid grid-default">
-      <SearchBar onChange={handleSearch} />
+      <SearchCardBar onChange={handleSearch} />
 
       <ol className="grid grid-default">
         {results.map((card) => (

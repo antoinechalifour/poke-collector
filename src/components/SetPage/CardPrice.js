@@ -6,6 +6,7 @@ const ReactTooltip = dynamic(() => import("react-tooltip"), { ssr: false });
 
 export const CardPrice = ({ cardId, price, timestamp }) => {
   const id = `${cardId}-${price}`;
+
   return (
     <>
       ${price}
