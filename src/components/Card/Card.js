@@ -18,6 +18,7 @@ export const Card = ({
   set,
   tcgplayer,
   priced_at,
+  extraSummary,
 }) => {
   const [primaryType = "default"] = types;
   const { user } = useUser();
@@ -49,6 +50,7 @@ export const Card = ({
           rarity={rarity}
           tcgplayer={tcgplayer}
           pricedAt={priced_at}
+          extras={extraSummary}
         />
       </div>
 

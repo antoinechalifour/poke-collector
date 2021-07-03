@@ -4,6 +4,7 @@
   --color-text: #fff;
   --color-text-reverse: #171717;
   --color-text-darker: #BAAEFF;
+  --color-text-secondary: lightgray;
   --color-accent: rgb(255, 215, 0);
   --color-accent-secondary: rgb(var(--rgb-action-secondary));
   --color-background-lighter: rgb(73, 68, 100);
@@ -12,7 +13,7 @@
 
   --size-corner: 1rem;
   --size-text-xl: 4rem;
-  --size-text-l: 2rem;
+  --size-text-l: 1.8rem;
   --size-text: 1.6rem;
   --size-text-md: 1.4rem;
   --size-text-sm: 1.2rem;

@@ -27,5 +27,18 @@ export const CardsHTTPAdapter = (http) => {
 
       return cards;
     },
+    ofPokemon: (nationalNumber) => {
+      const pricedAt = Date.now();
+
+      return http
+        .get(
+          `/cards?q=nationalPokedexNumbers:${nationalNumber}&orderBy=set.releaseDate`
+        )
+        .then((res) =>
+          res.data.data.map((card) =>
+            Object.assign(card, { priced_at: pricedAt })
+          )
+        );
+    },
   };
 };

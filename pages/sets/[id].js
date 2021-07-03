@@ -1,11 +1,11 @@
-import axios from "axios";
 import Head from "next/head";
 
 import { applyAppLayout } from "@/components/Layouts/AppLayout";
 import { SetPage } from "@/components/SetPage/SetPage";
 import { SetsHTTPAdapter } from "@/server/SetsHTTPAdapter";
-import { http } from "@/server/http";
+import { pokemonTcg } from "@/server/api";
 import { CardsHTTPAdapter } from "@/server/CardsHTTPAdapter";
+import { anHour } from "@/time";
 
 export default function Set({ set, cards }) {
   return (
@@ -27,7 +27,7 @@ export default function Set({ set, cards }) {
 Set.getLayout = applyAppLayout;
 
 export const getStaticPaths = async () => {
-  const sets = await SetsHTTPAdapter(http).all();
+  const sets = await SetsHTTPAdapter(pokemonTcg).all();
 
   return {
     paths: sets.map((set) => ({
@@ -37,12 +37,10 @@ export const getStaticPaths = async () => {
   };
 };
 
-const anHour = 60 * 60 * 6;
-
 export const getStaticProps = async ({ params }) => {
   const [set, cards] = await Promise.all([
-    SetsHTTPAdapter(http).ofId(params.id),
-    CardsHTTPAdapter(http).ofSet(params.id),
+    SetsHTTPAdapter(pokemonTcg).ofId(params.id),
+    CardsHTTPAdapter(pokemonTcg).ofSet(params.id),
   ]);
 
   return {

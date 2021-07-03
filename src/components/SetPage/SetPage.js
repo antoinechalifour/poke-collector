@@ -1,20 +1,18 @@
 import { memo } from "react";
 
+import { CardAnimationManager } from "../Card/CardAnimationManager";
 import { SetDetails } from "./Set";
 import { AllCards } from "./AllCards";
-import { CardAnimationManager } from "./CardAnimationManager";
 
 const AllCardsMemo = memo(AllCards);
 
 export const SetPage = ({ set, cards }) => (
-  <>
-    <div className="grid">
-      <SetDetails {...set} />
+  <div className="grid">
+    <SetDetails {...set} />
 
-      <CardAnimationManager>
-        <AllCardsMemo cards={cards} />
-      </CardAnimationManager>
-    </div>
+    <CardAnimationManager>
+      <AllCardsMemo cards={cards} />
+    </CardAnimationManager>
 
     <style jsx>{`
       @media (min-width: 800px) {
@@ -23,5 +21,5 @@ export const SetPage = ({ set, cards }) => (
         }
       }
     `}</style>
-  </>
+  </div>
 );

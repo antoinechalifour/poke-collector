@@ -1,5 +1,5 @@
 import { connect } from "@/server/knex";
-import { http } from "@/server/http";
+import { pokemonTcg } from "@/server/api";
 import { SetSummariesSQLAdapter } from "@/server/SetSummariesSQLAdapter";
 import { CardsHTTPAdapter } from "@/server/CardsHTTPAdapter";
 import { SetsHTTPAdapter } from "@/server/SetsHTTPAdapter";
@@ -11,8 +11,8 @@ export default requireBasicAuth(async function initSetDataEndpoint(req, res) {
 
   try {
     const initSetSummaries = InitSetSummaries(
-      SetsHTTPAdapter(http),
-      CardsHTTPAdapter(http),
+      SetsHTTPAdapter(pokemonTcg),
+      CardsHTTPAdapter(pokemonTcg),
       SetSummariesSQLAdapter(connection)
     );
 

@@ -3,8 +3,9 @@ import Head from "next/head";
 import { HomePage } from "@/components/HomePage/HomePage";
 import { applyAppLayout } from "@/components/Layouts/AppLayout";
 import { SetsHTTPAdapter } from "@/server/SetsHTTPAdapter";
-import { http } from "@/server/http";
+import { pokemonTcg } from "@/server/api";
 import { RetrieveSetsBySeries } from "@/server/RetrieveSetsBySeries";
+import { aWeek } from "@/time";
 
 export default function Home({ setsBySeries }) {
   return (
@@ -25,10 +26,10 @@ export default function Home({ setsBySeries }) {
 
 Home.getLayout = applyAppLayout;
 
-const aWeek = 60 * 60 * 24 * 7;
-
 export const getStaticProps = async () => {
-  const retrieveSetsBySeries = RetrieveSetsBySeries(SetsHTTPAdapter(http));
+  const retrieveSetsBySeries = RetrieveSetsBySeries(
+    SetsHTTPAdapter(pokemonTcg)
+  );
 
   return {
     props: { setsBySeries: await retrieveSetsBySeries() },

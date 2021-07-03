@@ -9,13 +9,19 @@ export const CardPrice = ({ cardId, price, timestamp }) => {
 
   return (
     <>
-      ${price}
-      <span data-tip data-for={id}>
-        <HiOutlineInformationCircle size="2rem" />
-      </span>
-      <ReactTooltip id={id} place="top" type="dark" effect="float">
-        Price of ${price} as of {format(new Date(timestamp), "PPp")}
-      </ReactTooltip>
+      {price ? (
+        <>
+          ${price}
+          <span data-tip data-for={id}>
+            <HiOutlineInformationCircle size="2rem" />
+          </span>
+          <ReactTooltip id={id} place="top" type="dark" effect="float">
+            Price of ${price} as of {format(new Date(timestamp), "PPp")}
+          </ReactTooltip>
+        </>
+      ) : (
+        "N/A"
+      )}
       <style jsx>{`
         span {
           display: inline-block;
