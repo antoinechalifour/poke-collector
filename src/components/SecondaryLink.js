@@ -15,13 +15,16 @@ export const SecondaryLink = ({ id, href, children, label }) => (
 
     <style jsx>{`
       a {
-        text-decoration: underline dotted;
-        color: var(--color-text-secondary);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
         display: inline-block;
         max-width: 100%;
+        overflow: hidden;
+        vertical-align: middle;
+
+        color: var(--color-text-secondary);
+
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-decoration: underline dotted;
       }
     `}</style>
   </>
