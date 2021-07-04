@@ -3,11 +3,19 @@ import { CardAnimationManager } from "@/components/Card/CardAnimationManager";
 import { PageTitle } from "@/components/PageTitle";
 import { CardGrid } from "@/components/CardGrid";
 
-const getExtraProps = ({ set }) => ({
+const getExtraProps = ({ number, set }) => ({
   extraSummary: [
     {
       label: "Set",
-      value: <SecondaryLink href={`/sets/${set.id}`}>{set.name}</SecondaryLink>,
+      value: (
+        <SecondaryLink
+          id={`link-${number}-${set.id}`}
+          label={`See all cards of set ${set.name}`}
+          href={`/sets/${set.id}`}
+        >
+          {set.name}
+        </SecondaryLink>
+      ),
     },
     {
       label: "Release Date",
