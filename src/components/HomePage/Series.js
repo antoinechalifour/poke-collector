@@ -2,18 +2,14 @@ import { AllSets } from "./AllSets";
 
 export const Series = ({ series, sets }) => (
   <section className="grid grid-default">
-    <h2>{series}</h2>
+    <h3>{series}</h3>
     <AllSets sets={sets} />
 
     <style jsx>{`
-      h2 {
+      h3 {
         font-size: 3rem;
-        border-bottom: 2px solid var(--color-accent);
         text-transform: uppercase;
-        font-weight: 600;
-        margin-top: 4rem;
-        margin-bottom: 1rem;
-        padding-bottom: 1rem;
+        margin-top: 3rem;
       }
     `}</style>
   </section>
