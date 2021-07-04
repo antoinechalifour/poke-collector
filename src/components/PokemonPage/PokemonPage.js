@@ -9,6 +9,10 @@ const getExtraProps = ({ set }) => ({
       label: "Set",
       value: <SecondaryLink href={`/sets/${set.id}`}>{set.name}</SecondaryLink>,
     },
+    {
+      label: "Release Date",
+      value: set.releaseDate,
+    },
   ],
 });
 
