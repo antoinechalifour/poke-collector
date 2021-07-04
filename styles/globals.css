@@ -19,6 +19,36 @@
   --size-text-sm: 1.2rem;
   --size-spacing-base: 1rem;
   --size-page-width: 140rem;
+
+
+  --aa-base-unit: 1rem;
+  --aa-spacing: 2rem;
+  --aa-icon-size: 2rem;
+  --aa-icon-color-rgb: 211, 211, 211;
+  --aa-icon-color-alpha: 1;
+  --aa-text-color-rgb: 255, 255, 255;
+  --aa-text-color-alpha: .85;
+  --aa-primary-color-rgb: 138, 118, 27;
+  --aa-input-border-color-rgb: 55, 55, 71;
+  --aa-input-border-color-alpha: 1;
+  --aa-background-color-rgb: 8, 8, 27;
+  --aa-background-color-alpha: 1;
+  --aa-input-background-color-rgb: 20, 21, 39;
+  --aa-input-background-color-alpha: 1;
+  --aa-search-input-height: 6.4rem;
+  --aa-muted-color-rgb: 211, 211, 211;
+  --aa-scrollbar-track-background-color-rgb: 8, 8, 27;
+  --aa-scrollbar-thumb-background-color-rgb: 255, 255, 255;
+  --aa-scrollbar-thumb-background-color-alpha: .25;
+}
+
+.aa-Form {
+  border-radius: var(--size-corner);
+  border-width: 2px;
+}
+
+.aa-Form:focus-within {
+  box-shadow: none;
 }
 
 @font-face {
@@ -49,6 +79,7 @@ body {
   line-height: 1.4;
   background: var(--color-background);
   color: var(--color-text);
+  padding-bottom: 4rem;
 }
 
 * {
@@ -73,6 +104,10 @@ body {
 
 .grid-xs {
   grid-gap: calc(var(--size-spacing-base) / 2) var(--size-spacing-base);
+}
+
+.grid-l {
+  grid-gap: calc(var(--size-spacing-base) * 8);
 }
 
 .grid-center-x {
@@ -175,14 +210,19 @@ a {
 .input {
   padding: calc(var(--size-spacing-base) * 2);
   border-radius: var(--size-corner);
-  background: rgb(255 255 255 / 5%);
+  background: rgb(20, 21, 39);
   font-family: inherit;
   font-size: inherit;
   color: inherit;
   outline: none;
-  border: 2px solid rgb(255 255 255 / 15%);
+  border: 2px solid rgb(55, 55, 71);
   font-weight: 600;
   transition: border-color 0.2s ease;
+}
+
+.input-small {
+  padding: calc(var(--size-spacing-base));
+
 }
 
 .input:focus {

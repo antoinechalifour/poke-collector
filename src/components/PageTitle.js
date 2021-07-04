@@ -24,7 +24,8 @@ export const PageTitle = ({ children }) => (
         left: 50%;
         transform: translate(-50%, -50%);
         text-shadow: 0 1px 2px rgb(0 0 0 / 100%), 0 1px 6px rgb(0 0 0 / 100%);
-        font-size: 6rem;
+        font-size: 5rem;
+        white-space: nowrap;
       }
     `}</style>
   </div>

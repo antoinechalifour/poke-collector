@@ -7,7 +7,7 @@ module.exports = withPWA(
   withBundleAnalyzer({
     reactStrictMode: true,
     images: {
-      domains: ["images.pokemontcg.io"],
+      domains: ["images.pokemontcg.io", "assets.pokemon.com"],
     },
     pwa: {
       disable: process.env.NODE_ENV === "development",

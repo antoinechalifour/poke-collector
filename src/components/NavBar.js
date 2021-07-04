@@ -34,6 +34,7 @@ export const NavBar = ({ subtitle }) => {
 
         span {
           opacity: 0.75;
+          white-space: nowrap;
         }
       `}</style>
     </nav>

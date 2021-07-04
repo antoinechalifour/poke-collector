@@ -1,9 +1,11 @@
-import flatMap from "lodash.flatmap";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+
 import { useSearch } from "@/client/search";
-import { SecondaryLink } from "@/components/SecondaryLink";
 import { CardGrid } from "@/components/CardGrid";
 
 import { SearchCardBar } from "./SearchCardBar";
+import { NationalPokedexNumbers } from "./NationalPokedexNumbers";
 
 const fuseOptions = {
   includeScore: true,
@@ -12,9 +14,6 @@ const fuseOptions = {
   keys: ["name", "rarity"],
 };
 
-export const intersperse = (arr, inter) =>
-  flatMap(arr, (a, i) => (i ? [inter, a] : [a]));
-
 const getExtraProps = ({ number, nationalPokedexNumbers = [] }) => {
   if (!nationalPokedexNumbers.length) return {};
 
@@ -22,32 +21,10 @@ const getExtraProps = ({ number, nationalPokedexNumbers = [] }) => {
     {
       label: "National n°",
       value: (
-        <div>
-          {intersperse(
-            nationalPokedexNumbers.map((nationalNumber) => (
-              <SecondaryLink
-                id={`link-${number}-${nationalNumber}`}
-                key={nationalNumber}
-                label="See all cards of this Pokémon"
-                href={`/pokemon/${nationalNumber}`}
-              >
-                {nationalNumber}
-              </SecondaryLink>
-            )),
-            <span>•</span>
-          )}
-
-          <style jsx>{`
-            div {
-              display: flex;
-              align-items: center;
-            }
-
-            span {
-              margin: 0 0.5ch;
-            }
-          `}</style>
-        </div>
+        <NationalPokedexNumbers
+          cardNumber={number}
+          nationalPokedexNumbers={nationalPokedexNumbers}
+        />
       ),
     },
   ];
@@ -59,6 +36,21 @@ const getExtraProps = ({ number, nationalPokedexNumbers = [] }) => {
 
 export const AllCards = ({ cards }) => {
   const { results, handleSearch } = useSearch(cards, fuseOptions);
+  const router = useRouter();
+
+  useEffect(() => {
+    const onScroll = () => {
+      const [url, hash] = router.asPath.split("#");
+
+      if (hash) router.replace(url, url, { shallow: true });
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
   return (
     <section className="grid grid-default">

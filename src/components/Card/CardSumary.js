@@ -65,6 +65,7 @@ export const CardSumary = ({
         align-content: start;
         grid-template-columns: 14ch 1fr;
         min-height: 13rem;
+        font-size: var(--size-text-md);
       }
 
       dd {

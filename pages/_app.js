@@ -1,5 +1,6 @@
 import "reset.css/reset.css";
 import "nprogress/nprogress.css";
+import "@algolia/autocomplete-theme-classic";
 
 import "../styles/globals.css";
 

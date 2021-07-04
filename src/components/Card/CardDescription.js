@@ -9,6 +9,7 @@ export const CardDescription = ({ type = "default", children }) => (
         height: 12rem;
         margin: 0 -2rem;
         border-radius: var(--size-corner);
+        font-size: var(--size-text-md);
       }
 
       blockquote.default-background {

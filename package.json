@@ -10,8 +10,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "@algolia/autocomplete-js": "^1.1.0",
+    "@algolia/autocomplete-theme-classic": "^1.1.0",
     "@auth0/nextjs-auth0": "1.4.0",
     "@next/bundle-analyzer": "11.0.1",
+    "algoliasearch": "^4.10.2",
     "axios": "0.21.1",
     "babel-jest": "27.0.5",
     "basic-auth": "2.0.1",

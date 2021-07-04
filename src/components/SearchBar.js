@@ -8,7 +8,7 @@ export const SearchBar = ({ id, label, placeholder, onChange }) => {
   return (
     <form
       role="search"
-      className="grid grid-sm card card-content"
+      className="grid grid-sm"
       onSubmit={(e) => e.preventDefault()}
     >
       <label className="label" htmlFor={id}>
@@ -16,7 +16,7 @@ export const SearchBar = ({ id, label, placeholder, onChange }) => {
       </label>
 
       <input
-        className="input"
+        className="input input-small"
         type="text"
         id={id}
         name={id}

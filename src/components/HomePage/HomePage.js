@@ -1,8 +1,9 @@
 import { useSearch } from "@/client/search";
 
+import { QuickSearch } from "./Search/QuickSearch";
+import { Series } from "./Browse/Series";
+import { SearchSetBar } from "./Browse/SearchSetBar";
 import { PokeCollectorTitle } from "./PokeCollectorTitle";
-import { Series } from "./Series";
-import { SearchSetBar } from "./SearchSetBar";
 
 const fuseOptions = {
   includeScore: true,
@@ -20,8 +21,6 @@ const mapItem = ({ item, matches }) => ({
     .map(({ refIndex }) => item.sets[refIndex]),
 });
 
-const QuickSearch = () => <p>Hello world</p>;
-
 export const HomePage = ({ setsBySeries }) => {
   const { results, handleSearch } = useSearch(
     setsBySeries,
@@ -33,17 +32,17 @@ export const HomePage = ({ setsBySeries }) => {
     <main className="grid grid-default page-container">
       <PokeCollectorTitle />
 
-      <h2>Find your card</h2>
-
       <QuickSearch />
 
       <h2>Browse sets</h2>
 
-      <SearchSetBar onChange={handleSearch} />
+      <div className="grid grid-l">
+        <SearchSetBar onChange={handleSearch} />
 
-      {results.map(({ series, sets }) => (
-        <Series series={series} sets={sets} key={series} />
-      ))}
+        {results.map(({ series, sets }) => (
+          <Series series={series} sets={sets} key={series} />
+        ))}
+      </div>
 
       <style jsx>{`
         h2 {
