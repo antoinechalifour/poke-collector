@@ -1,12 +1,9 @@
 import Link from "next/link";
-import { useUser } from "@auth0/nextjs-auth0";
 
 import { PokeBall } from "./PokeBall";
-import { UserProfile } from "./UserProfile";
+import { AuthenticationStatus } from "./AuthenticationStatus";
 
 export const NavBar = ({ subtitle }) => {
-  const { user } = useUser();
-
   return (
     <nav className="grid grid-default grid-center-x card-content">
       <Link href="/">
@@ -17,9 +14,7 @@ export const NavBar = ({ subtitle }) => {
 
       <p>Poké Collector {subtitle && <span>/ {subtitle}</span>}</p>
 
-      {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-      {!user && <a href="/api/auth/login">Login</a>}
-      {user && <UserProfile user={user} />}
+      <AuthenticationStatus />
 
       <style jsx>{`
         nav {
