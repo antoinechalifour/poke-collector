@@ -14,12 +14,12 @@ export const PokeBall = () => (
         background: #d90707;
 
         cursor: pointer;
-        transform: scale(1);
+        transform: scale(1) rotate(0);
         transition: transform 0.25s ease;
       }
 
       span:hover {
-        transform: scale(1.1);
+        transform: scale(1.1) rotate(20deg);
       }
 
       span:before {
