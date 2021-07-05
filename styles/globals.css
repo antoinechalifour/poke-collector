@@ -129,7 +129,7 @@ body {
       Components
 *********************/
 
-svg path {
+#__next svg path {
   fill: var(--color-text);
 }
 
