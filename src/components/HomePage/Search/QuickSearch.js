@@ -22,10 +22,10 @@ export const QuickSearch = () => {
     <div className="block-centered" ref={containerRef}>
       <style jsx>{`
         div {
-          margin-top: 8rem;
-          margin-bottom: 8rem;
           width: 100%;
           max-width: 860px;
+          margin-top: 4rem;
+          margin-bottom: 4rem;
         }
       `}</style>
     </div>
