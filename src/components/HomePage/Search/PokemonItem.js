@@ -11,10 +11,10 @@ export const PokemonItem = ({ hit, components }) => (
           </span>
 
           <p>
-            All cards of{" "}
             <span>
               <components.Highlight hit={hit} attribute="name" />
-            </span>
+            </span>{" "}
+            in Pokémon
           </p>
         </div>
       </a>

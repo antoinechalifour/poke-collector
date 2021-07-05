@@ -5,6 +5,7 @@ import { createElement, Fragment } from "react";
 import ReactDOM from "react-dom";
 import { RouterContext } from "next/dist/next-server/lib/router-context";
 import algoliasearch from "algoliasearch/lite";
+import { SetItem } from "@/components/HomePage/Search/SetItem";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_ID,
@@ -12,6 +13,28 @@ const searchClient = algoliasearch(
 );
 
 const getSources = ({ query }) => [
+  {
+    sourceId: "sets",
+    getItemUrl: ({ item }) => `/sets/${item.id}`,
+    getItems: () =>
+      getAlgoliaResults({
+        searchClient,
+        queries: [
+          {
+            indexName: "dev_sets",
+            query,
+            params: {
+              hitsPerPage: 2,
+            },
+          },
+        ],
+      }),
+    templates: {
+      item({ item, components }) {
+        return <SetItem hit={item} components={components} />;
+      },
+    },
+  },
   {
     sourceId: "pokemons",
     getItemUrl: ({ item }) => `/pokemon/${item.id}`,

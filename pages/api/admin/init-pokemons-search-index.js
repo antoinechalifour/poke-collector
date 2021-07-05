@@ -1,12 +1,7 @@
 import { PokemonsHTTPAdapter } from "@/server/PokemonsHTTPAdapter";
 import { pokeApi } from "@/server/api";
 import { requireBasicAuth } from "@/server/basicAuth";
-import algoliasearch from "algoliasearch";
-
-const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_ID,
-  process.env.ALGOLIA_ADMIN_KEY
-);
+import { searchClient } from "@/server/algolia";
 
 const toSearchablePokemon = (pokemon) => ({
   objectID: pokemon.id,

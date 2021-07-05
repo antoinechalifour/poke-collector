@@ -1,60 +1,31 @@
-import { useSearch } from "@/client/search";
-
 import { QuickSearch } from "./Search/QuickSearch";
 import { Series } from "./Browse/Series";
-import { SearchSetBar } from "./Browse/SearchSetBar";
 import { PokeCollectorTitle } from "./PokeCollectorTitle";
 
-const fuseOptions = {
-  includeScore: true,
-  includeMatches: true,
-  ignoreLocation: true,
-  threshold: 0.15,
-  minMatchCharLength: 3,
-  keys: ["series", "sets.name"],
-};
+export const HomePage = ({ setsBySeries }) => (
+  <main className="grid grid-default page-container">
+    <PokeCollectorTitle />
 
-const mapItem = ({ item, matches }) => ({
-  ...item,
-  sets: matches
-    .filter(({ key }) => key === "sets.name")
-    .map(({ refIndex }) => item.sets[refIndex]),
-});
+    <QuickSearch />
 
-export const HomePage = ({ setsBySeries }) => {
-  const { results, handleSearch } = useSearch(
-    setsBySeries,
-    fuseOptions,
-    mapItem
-  );
+    <h2>Browse sets</h2>
 
-  return (
-    <main className="grid grid-default page-container">
-      <PokeCollectorTitle />
+    <div className="grid grid-l">
+      {setsBySeries.map(({ series, sets }) => (
+        <Series series={series} sets={sets} key={series} />
+      ))}
+    </div>
 
-      <QuickSearch />
-
-      <h2>Browse sets</h2>
-
-      <div className="grid grid-l">
-        <SearchSetBar onChange={handleSearch} />
-
-        {results.map(({ series, sets }) => (
-          <Series series={series} sets={sets} key={series} />
-        ))}
-      </div>
-
-      <style jsx>{`
-        h2 {
-          font-size: 4rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          border-bottom: 2px solid var(--color-accent);
-          margin-bottom: 1rem;
-          padding-bottom: 1rem;
-          margin-top: 3rem;
-        }
-      `}</style>
-    </main>
-  );
-};
+    <style jsx>{`
+      h2 {
+        font-size: 4rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        border-bottom: 2px solid var(--color-accent);
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        margin-top: 3rem;
+      }
+    `}</style>
+  </main>
+);

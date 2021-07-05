@@ -1,12 +1,13 @@
 :root {
-  --rgb-action-secondary: 254 29 127;
+  --rgb-accent: 255 215 0;
+  --rgb-accent-secondary: 254 29 127;
 
   --color-text: #fff;
   --color-text-reverse: #171717;
   --color-text-darker: #BAAEFF;
   --color-text-secondary: lightgray;
-  --color-accent: rgb(255, 215, 0);
-  --color-accent-secondary: rgb(var(--rgb-action-secondary));
+  --color-accent: rgb(var(--rgb-accent));
+  --color-accent-secondary: rgb(var(--rgb-accent-secondary));
   --color-background-lighter: rgb(73, 68, 100);
   --color-background: rgb(37, 34, 50);
   --color-background-darker: rgb(8, 8, 27);
@@ -40,15 +41,6 @@
   --aa-scrollbar-track-background-color-rgb: 8, 8, 27;
   --aa-scrollbar-thumb-background-color-rgb: 255, 255, 255;
   --aa-scrollbar-thumb-background-color-alpha: .25;
-}
-
-.aa-Form {
-  border-radius: var(--size-corner);
-  border-width: 2px;
-}
-
-.aa-Form:focus-within {
-  box-shadow: none;
 }
 
 @font-face {
@@ -182,7 +174,7 @@ a {
   font-weight: bold;
 
   color: var(--color-text-reverse);
-  background: rgb(var(--rgb-action-secondary) / var(--button-background-opacity));
+  background: rgb(var(--rgb-accent-secondary) / var(--button-background-opacity));
   text-shadow: 0 1px 3px rgb(0 0 0 / 20%);
   text-decoration: none;
 
@@ -222,7 +214,6 @@ a {
 
 .input-small {
   padding: calc(var(--size-spacing-base));
-
 }
 
 .input:focus {
@@ -243,6 +234,14 @@ a {
   display: none;
 }
 
+.aa-Form {
+  border-radius: var(--size-corner);
+  border-width: 2px;
+}
+
+.aa-Form:focus-within {
+  box-shadow: none;
+}
 
 /*********************
       Box model

@@ -1,23 +1,25 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export const CardItem = ({ hit, components }) => (
+export const SetItem = ({ hit, components }) => (
   <>
-    <Link href={`/sets/${hit.setId}#${hit.id}`}>
+    <Link href={`/sets/${hit.id}`}>
       <a>
         <div className="grid">
           <span className="positioning-parent aspect-ratio">
-            <Image layout="fill" src={hit.image} />
+            <Image layout="fill" objectFit="contain" src={hit.image} />
           </span>
 
           <p>
-            <components.Highlight hit={hit} attribute="fullName" />
+            <span>
+              <components.Highlight hit={hit} attribute="name" />
+            </span>{" "}
+            in sets
           </p>
 
           <p>
-            <components.Highlight hit={hit} attribute="setName" /> •{" "}
-            <components.Highlight hit={hit} attribute="setSeries" /> •{" "}
-            <components.Highlight hit={hit} attribute="rarity" />
+            <components.Highlight hit={hit} attribute="releaseDate" /> •{" "}
+            {hit.printedTotal} cards • {hit.secrets} secret cards
           </p>
         </div>
       </a>
@@ -31,8 +33,8 @@ export const CardItem = ({ hit, components }) => (
       }
 
       span {
-        --aspect-ratio-width: 245;
-        --aspect-ratio-height: 342;
+        --aspect-ratio-width: 1;
+        --aspect-ratio-height: 1;
       }
 
       a {
@@ -44,7 +46,7 @@ export const CardItem = ({ hit, components }) => (
         grid-row: 1 / span 2;
       }
 
-      p:nth-child(2) {
+      p:nth-child(2) span {
         font-weight: 600;
       }
 

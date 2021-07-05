@@ -16,7 +16,7 @@ export const CollectedBadge = ({ cardId, set }) => {
         p {
           display: inline-block;
           padding: 2rem;
-          border: 2px solid rgb(var(--rgb-action-secondary));
+          border: 2px solid rgb(var(--rgb-accent-secondary));
           border-radius: 2rem;
 
           text-align: center;
@@ -27,7 +27,7 @@ export const CollectedBadge = ({ cardId, set }) => {
           letter-spacing: 2px;
           text-shadow: 0 1px 3px rgb(0 0 0 / 25%);
 
-          background: rgb(var(--rgb-action-secondary) / 85%);
+          background: rgb(var(--rgb-accent-secondary) / 85%);
           color: rgb(0 0 0 / 90%);
 
           box-shadow: inset 0 2px 3px #fff,

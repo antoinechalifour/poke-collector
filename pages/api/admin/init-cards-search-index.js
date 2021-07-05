@@ -1,14 +1,8 @@
-import algoliasearch from "algoliasearch";
-
 import { requireBasicAuth } from "@/server/basicAuth";
 import { CardsHTTPAdapter } from "@/server/CardsHTTPAdapter";
 import { pokemonTcg } from "@/server/api";
 import { SetsHTTPAdapter } from "@/server/SetsHTTPAdapter";
-
-const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_ID,
-  process.env.ALGOLIA_ADMIN_KEY
-);
+import { searchClient } from "@/server/algolia";
 
 const toSearchableCard = (card) => ({
   objectID: card.id,
@@ -22,10 +16,7 @@ const toSearchableCard = (card) => ({
   setName: card.set.name,
 });
 
-export default requireBasicAuth(async function initSearchIndicesEndpoint(
-  req,
-  res
-) {
+export default requireBasicAuth(async function initCardsSearchIndex(req, res) {
   const index = searchClient.initIndex("dev_cards");
   await index.clearObjects();
   const sets = await SetsHTTPAdapter(pokemonTcg).all();
