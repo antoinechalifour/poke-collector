@@ -14,6 +14,7 @@ const toSearchableCard = (card) => ({
   setId: card.set.id,
   setSeries: card.set.series,
   setName: card.set.name,
+  artist: card.artist,
 });
 
 export default requireBasicAuth(async function initCardsSearchIndex(req, res) {
