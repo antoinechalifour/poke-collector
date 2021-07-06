@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
-import { makeSearch } from "@/components/HomePage/Search/algolia";
+
+import { makeSearch } from "./algolia";
 
 export const QuickSearch = () => {
   const router = useRouter();
@@ -18,16 +19,5 @@ export const QuickSearch = () => {
     };
   }, [router]);
 
-  return (
-    <div className="block-centered" ref={containerRef}>
-      <style jsx>{`
-        div {
-          width: 100%;
-          max-width: 860px;
-          margin-top: 4rem;
-          margin-bottom: 4rem;
-        }
-      `}</style>
-    </div>
-  );
+  return <div ref={containerRef} />;
 };

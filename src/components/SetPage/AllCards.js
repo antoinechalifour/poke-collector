@@ -34,23 +34,41 @@ const getExtraProps = ({ number, nationalPokedexNumbers = [] }) => {
   };
 };
 
-export const AllCards = ({ cards }) => {
-  const { results, handleSearch } = useSearch(cards, fuseOptions);
+const useCleanHashOnScroll = () => {
   const router = useRouter();
 
   useEffect(() => {
     const onScroll = () => {
-      const [url, hash] = router.asPath.split("#");
+      const hasHash = !!window.location.hash;
+      const [pathWithoutHash] = router.asPath.split("#");
 
-      if (hash) router.replace(url, url, { shallow: true });
+      if (hasHash)
+        router.replace(pathWithoutHash, pathWithoutHash, { shallow: true });
     };
 
     window.addEventListener("scroll", onScroll);
 
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [router, router.asPath]);
+};
+
+const useScrollToCard = (cards) => {
+  useEffect(() => {
+    const hash = window.location.hash || "";
+    const id = hash.replace("#", "");
+
+    setTimeout(() => {
+      const element = document.getElementById(id);
+
+      if (element) element.scrollIntoView();
+    }, 0);
+  }, [cards]);
+};
+
+export const AllCards = ({ cards }) => {
+  useCleanHashOnScroll();
+  useScrollToCard(cards);
+  const { results, handleSearch } = useSearch(cards, fuseOptions);
 
   return (
     <section className="grid grid-default">

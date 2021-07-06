@@ -1,11 +1,12 @@
-import { autocomplete, getAlgoliaResults } from "@algolia/autocomplete-js";
-import { PokemonItem } from "@/components/HomePage/Search/PokemonItem";
-import { CardItem } from "@/components/HomePage/Search/CardItem";
 import { createElement, Fragment } from "react";
 import ReactDOM from "react-dom";
 import { RouterContext } from "next/dist/next-server/lib/router-context";
+import { autocomplete, getAlgoliaResults } from "@algolia/autocomplete-js";
 import algoliasearch from "algoliasearch/lite";
-import { SetItem } from "@/components/HomePage/Search/SetItem";
+
+import { PokemonItem } from "./PokemonItem";
+import { CardItem } from "./CardItem";
+import { SetItem } from "./SetItem";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_ID,
@@ -135,7 +136,8 @@ export const makeSearch = (container, router) =>
   autocomplete({
     container,
     renderer: { createElement, Fragment },
-    placeholder: "Ex: Mewtwo 51/108",
+    placeholder: "Search",
+    detachedMediaQuery: "",
     getSources,
     navigator: {
       navigate({ itemUrl }) {

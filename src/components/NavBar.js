@@ -1,42 +1,30 @@
-import Link from "next/link";
-
-import { PokeBall } from "./PokeBall";
+import { QuickSearch } from "./Search/QuickSearch";
 import { AuthenticationStatus } from "./AuthenticationStatus";
+import { NavBarTitle } from "./NavBarTitle";
 
-export const NavBar = ({ subtitle }) => {
-  return (
-    <nav className="grid grid-default grid-center-x card-content">
-      <Link href="/">
-        <a aria-label="Go back to home page">
-          <PokeBall />
-        </a>
-      </Link>
+export const NavBar = ({ subtitle }) => (
+  <nav>
+    <div className="page-container grid grid-default grid-center-x card-content">
+      <NavBarTitle subtitle={subtitle} />
 
-      <p>Poké Collector {subtitle && <span>/ {subtitle}</span>}</p>
+      <QuickSearch />
 
       <AuthenticationStatus />
+    </div>
 
-      <style jsx>{`
-        nav {
-          position: sticky;
-          top: 0;
-          z-index: 10;
+    <style jsx>{`
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
 
-          grid-template-columns: auto 1fr auto;
+        background: rgb(8 8 27 / 75%);
+        backdrop-filter: blur(5px);
+      }
 
-          background: rgb(8 8 27 / 75%);
-          backdrop-filter: blur(5px);
-        }
-
-        p {
-          font-weight: bold;
-        }
-
-        span {
-          opacity: 0.75;
-          white-space: nowrap;
-        }
-      `}</style>
-    </nav>
-  );
-};
+      div {
+        grid-template-columns: 1fr auto auto;
+      }
+    `}</style>
+  </nav>
+);

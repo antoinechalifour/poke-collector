@@ -1,12 +1,10 @@
 import { useUser } from "@auth0/nextjs-auth0";
 
 import { CardTypeBackground } from "./CardTypeBackground";
-import { CardDescription } from "./CardDescription";
 import { CardSumary } from "./CardSumary";
 import { CardImage } from "./CardImage";
 import { CollectionStatus } from "./CollectionStatus";
-import { CardTarget } from "@/components/Card/CardTarget";
-import { useRouter } from "next/router";
+import { CardTarget } from "./CardTarget";
 
 export const Card = ({
   id,
@@ -14,7 +12,6 @@ export const Card = ({
   images,
   types = [],
   artist,
-  flavorText,
   rarity,
   number,
   set,
@@ -45,8 +42,6 @@ export const Card = ({
           >
             {name}
           </h2>
-
-          <CardDescription type={primaryType}>{flavorText}</CardDescription>
 
           <CardSumary
             cardId={id}

@@ -243,6 +243,37 @@ a {
   box-shadow: none;
 }
 
+.aa-DetachedOverlay {
+  backdrop-filter: blur(3px);
+}
+
+.aa-DetachedContainer--modal {
+  top: 2rem;
+}
+
+.aa-DetachedSearchButton {
+  width: 200px;
+}
+
+@media (max-width: 860px) {
+  .aa-DetachedSearchButton {
+    width: auto;
+    height: auto;
+    border: none;
+    background: none;
+    padding: 0;
+  }
+
+  .aa-DetachedSearchButtonIcon {
+    width: auto;
+    cursor: pointer;
+  }
+
+  .aa-DetachedSearchButtonPlaceholder {
+    display: none;
+  }
+}
+
 /*********************
       Box model
 *********************/

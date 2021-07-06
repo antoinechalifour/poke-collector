@@ -3,7 +3,7 @@ export const CardTarget = ({ id }) => (
     <style jsx>{`
       div {
         position: relative;
-        top: -8rem;
+        top: -12rem;
       }
     `}</style>
   </div>

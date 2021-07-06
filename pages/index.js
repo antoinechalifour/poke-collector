@@ -32,7 +32,10 @@ export const getStaticProps = async () => {
   );
 
   return {
-    props: { setsBySeries: await retrieveSetsBySeries() },
+    props: {
+      setsBySeries: await retrieveSetsBySeries(),
+      subtitle: "Browse sets",
+    },
     revalidate: aWeek,
   };
 };

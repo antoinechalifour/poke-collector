@@ -1,5 +1,5 @@
 import Fuse from "fuse.js";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const defaultMapItem = ({ item }) => item;
 
@@ -18,7 +18,14 @@ export const searchDataSet = ({
 
 export const useSearch = (dataSet, fuseOptions, mapItem) => {
   const [results, setResults] = useState(dataSet);
-  const fuse = useMemo(() => new Fuse(dataSet, fuseOptions), [dataSet]);
+  const fuse = useMemo(
+    () => new Fuse(dataSet, fuseOptions),
+    [dataSet, fuseOptions]
+  );
+
+  useEffect(() => {
+    setResults(dataSet);
+  }, [dataSet]);
 
   const handleSearch = (query) =>
     setResults(

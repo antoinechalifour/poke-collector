@@ -34,7 +34,7 @@ export const SetDetails = ({
         top: 62px;
 
         grid-template-rows: 1fr minmax(250px, auto);
-        min-height: calc(100vh - 62px);
+        min-height: calc(100vh - 108px);
       }
 
       section div {

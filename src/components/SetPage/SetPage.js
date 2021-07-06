@@ -17,7 +17,7 @@ export const SetPage = ({ set, cards }) => (
     <style jsx>{`
       @media (min-width: 800px) {
         div {
-          grid-template-columns: 1fr 2fr;
+          grid-template-columns: 1fr 3fr;
         }
       }
     `}</style>

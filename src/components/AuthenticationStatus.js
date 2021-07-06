@@ -1,12 +1,24 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
+
 import { useUser } from "@auth0/nextjs-auth0";
-import { UserProfile } from "@/components/UserProfile";
+import { HiLogout } from "react-icons/hi";
 
 export const AuthenticationStatus = () => {
   const { user, isLoading } = useUser();
 
   if (isLoading) return null;
-  /* eslint-disable-next-line @next/next/no-html-link-for-pages */
   if (!user) return <a href="/api/auth/login">Login</a>;
 
-  return <UserProfile user={user} />;
+  return (
+    <a href="/api/auth/logout" title="Logout">
+      <HiLogout size="2rem" />
+
+      <style jsx>{`
+        a :global(svg) {
+          position: relative;
+          top: 1px;
+        }
+      `}</style>
+    </a>
+  );
 };

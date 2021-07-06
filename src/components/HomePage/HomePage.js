@@ -1,12 +1,9 @@
-import { QuickSearch } from "./Search/QuickSearch";
 import { Series } from "./Browse/Series";
 import { PokeCollectorTitle } from "./PokeCollectorTitle";
 
 export const HomePage = ({ setsBySeries }) => (
   <main className="grid grid-default page-container">
     <PokeCollectorTitle />
-
-    <QuickSearch />
 
     <h2>Browse sets</h2>
 
