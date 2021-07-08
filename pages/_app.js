@@ -7,9 +7,7 @@ import "../styles/globals.css";
 import { UserProvider } from "@auth0/nextjs-auth0";
 import { useEffect } from "react";
 
-function MyApp({ Component, pageProps }) {
-  const getLayout = Component.getLayout || ((page) => page);
-
+function useServiceWorkerUpdates() {
   useEffect(() => {
     if (
       typeof window !== "undefined" &&
@@ -23,6 +21,8 @@ function MyApp({ Component, pageProps }) {
             "A new version of Poké Collector has been released, reload to update?"
           )
         ) {
+          wb.messageSkipWaiting();
+
           window.location.reload();
         }
       };
@@ -30,6 +30,12 @@ function MyApp({ Component, pageProps }) {
       wb.addEventListener("waiting", promptNewVersionAvailable);
     }
   }, []);
+}
+
+function MyApp({ Component, pageProps }) {
+  const getLayout = Component.getLayout || ((page) => page);
+
+  useServiceWorkerUpdates();
 
   return (
     <UserProvider>
