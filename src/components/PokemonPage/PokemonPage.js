@@ -1,7 +1,8 @@
 import { SecondaryLink } from "@/components/SecondaryLink";
 import { CardAnimationManager } from "@/components/Card/CardAnimationManager";
-import { PageTitle } from "@/components/PageTitle";
 import { CardGrid } from "@/components/CardGrid";
+
+import { PokemonPageTitle } from "./PokemonPageTitle";
 
 const getExtraProps = ({ number, set }) => ({
   extraSummary: [
@@ -27,7 +28,7 @@ const getExtraProps = ({ number, set }) => ({
 export const PokemonPage = ({ pokemon, cards }) => (
   <CardAnimationManager>
     <main className="page-container grid grid-default">
-      <PageTitle>{pokemon.name}</PageTitle>
+      <PokemonPageTitle image={pokemon.image}>{pokemon.name}</PokemonPageTitle>
 
       <CardGrid cards={cards} getExtraProps={getExtraProps} />
     </main>

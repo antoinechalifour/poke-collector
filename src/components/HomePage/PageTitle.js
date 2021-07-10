@@ -1,11 +1,12 @@
 import Image from "next/image";
 
 export const PageTitle = ({ children }) => (
-  <div className="block-centered positioning-parent">
-    <Image src="/poke-collector-logo.png" width={200} height={200} />
-    <h1 className="block-centered typography-display positioning-parent has-after positioning-after-center-x">
-      {children}
-    </h1>
+  <div className="grid grid-default block-centered">
+    <span className="positioning-parent">
+      <Image src="/poke-collector-logo.png" width={200} height={200} alt="" />
+    </span>
+
+    <h1 className="block-centered typography-display ">{children}</h1>
 
     <style jsx>{`
       div {
@@ -14,15 +15,10 @@ export const PageTitle = ({ children }) => (
       }
 
       div :global(img) {
-        opacity: 0.4;
         filter: drop-shadow(0 1px 6px rgb(0 0 0 / 100%));
       }
 
       h1 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         text-shadow: 0 1px 2px rgb(0 0 0 / 100%), 0 1px 6px rgb(0 0 0 / 100%);
         font-size: 5rem;
         white-space: nowrap;

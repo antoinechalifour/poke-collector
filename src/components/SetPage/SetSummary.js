@@ -1,5 +1,5 @@
 export const SetSummary = ({ series, releaseDate, printedTotal, total }) => (
-  <dl className="grid-sm summary">
+  <dl className="grid-sm summary card-content">
     <dt>Series</dt>
     <dd>{series}</dd>
 
@@ -16,6 +16,7 @@ export const SetSummary = ({ series, releaseDate, printedTotal, total }) => (
       dl {
         display: inline-grid;
         grid-template-columns: auto 1fr;
+        padding-top: 0;
       }
     `}</style>
   </dl>

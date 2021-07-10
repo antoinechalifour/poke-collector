@@ -27,6 +27,7 @@ export const toCard = ({
   set,
   tcgplayer = null,
   pricedAt,
+  nationalPokedexNumbers = [],
 }) => ({
   id,
   name,
@@ -38,4 +39,5 @@ export const toCard = ({
   set: toSet(set),
   tcgplayer,
   pricedAt,
+  nationalPokedexNumbers,
 });

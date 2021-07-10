@@ -13,10 +13,10 @@ export const SetProgress = ({ setId }) => {
     fetcher
   );
 
-  if (!data) return null;
+  if (!data) return <div />;
 
   return (
-    <section className="card-content">
+    <section className="block-centered card card-content">
       <dl className="grid grid-xs block-centered summary">
         <ProgressRow rarity="Overall progress" progress={data.progress} />
 
@@ -33,7 +33,12 @@ export const SetProgress = ({ setId }) => {
         {`
           section {
             display: flex;
-            align-items: flex-end;
+            align-items: center;
+            margin-bottom: 2rem;
+            max-width: 650px;
+            width: 100%;
+            position: relative;
+            top: -4rem;
           }
 
           dl {

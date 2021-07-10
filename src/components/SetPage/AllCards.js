@@ -4,7 +4,7 @@ import { NationalPokedexNumbers } from "./NationalPokedexNumbers";
 import { useCleanHashOnScroll } from "./useCleanHashOnScroll";
 import { useScrollToCard } from "./useScrollToCard";
 
-const getExtraProps = ({ number, nationalPokedexNumbers = [] }) => {
+const getExtraProps = ({ number, nationalPokedexNumbers }) => {
   if (!nationalPokedexNumbers.length) return {};
 
   const extraSummary = [
@@ -29,15 +29,8 @@ export const AllCards = ({ cards }) => {
   useScrollToCard(cards);
 
   return (
-    <section className="grid grid-default">
+    <section>
       <CardGrid cards={cards} getExtraProps={getExtraProps} />
-
-      <style jsx>{`
-        section {
-          grid-template-rows: auto 1fr;
-          padding: 2rem;
-        }
-      `}</style>
     </section>
   );
 };
