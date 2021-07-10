@@ -14,8 +14,8 @@ export const SetDetails = ({
 }) => (
   <div>
     <section className="grid">
-      <div className="positioning-parent">
-        <SetLogo logoUrl={images.logo} />
+      <SetLogo logoUrl={images.logo} />
+      <div>
         <SetTitle name={name} symbolUrl={images.symbol} />
         <SetSummary
           series={series}
@@ -23,28 +23,13 @@ export const SetDetails = ({
           total={total}
           printedTotal={printedTotal}
         />
+        <SetProgress setId={id} />
       </div>
-
-      <SetProgress setId={id} />
     </section>
 
     <style jsx>{`
       section {
-        position: sticky;
-        top: 62px;
-
-        grid-template-rows: 1fr minmax(250px, auto);
-        min-height: calc(100vh - 108px);
-      }
-
-      section div {
-        position: relative;
-        margin: auto 0;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
+        grid-template-columns: 1fr 3fr;
       }
     `}</style>
   </div>

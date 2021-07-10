@@ -31,7 +31,6 @@ export const NavBar = ({ subtitle }) => (
       @media (min-width: 860px) {
         div {
           grid-template-columns: 1fr auto 30rem;
-          padding: 1rem 0;
         }
       }
     `}</style>

@@ -1,3 +1,5 @@
+import { toCard } from "./mappers";
+
 export const CardsHTTPAdapter = (http) => {
   const CardsOfSetFetcher = (setId) => (page) =>
     http.get(`/cards?q=set.id:${setId}&page=${page}`).then((res) => res.data);
@@ -10,7 +12,7 @@ export const CardsHTTPAdapter = (http) => {
       const pricedAt = Date.now();
       const { data, pageSize, count } = await fetchPage(page);
 
-      yield data.map((card) => Object.assign(card, { priced_at: pricedAt }));
+      yield data.map((card) => Object.assign(card, { pricedAt }));
 
       if (count < pageSize) return;
       else page += 1;
@@ -25,7 +27,7 @@ export const CardsHTTPAdapter = (http) => {
         cards.push(...nextCards);
       }
 
-      return cards;
+      return cards.map(toCard);
     },
     ofPokemon: (nationalNumber) => {
       const pricedAt = Date.now();
@@ -35,9 +37,9 @@ export const CardsHTTPAdapter = (http) => {
           `/cards?q=nationalPokedexNumbers:${nationalNumber}&orderBy=set.releaseDate`
         )
         .then((res) =>
-          res.data.data.map((card) =>
-            Object.assign(card, { priced_at: pricedAt })
-          )
+          res.data.data
+            .map((card) => Object.assign(card, { pricedAt }))
+            .map(toCard)
         );
     },
   };

@@ -1,6 +1,5 @@
 import { useUser } from "@auth0/nextjs-auth0";
 
-import { CardTypeBackground } from "./CardTypeBackground";
 import { CardSumary } from "./CardSumary";
 import { CardImage } from "./CardImage";
 import { CollectionStatus } from "./CollectionStatus";
@@ -10,13 +9,13 @@ export const Card = ({
   id,
   name,
   images,
-  types = [],
+  types,
   artist,
   rarity,
   number,
   set,
   tcgplayer,
-  priced_at,
+  pricedAt,
   extraSummary,
   isActive = false,
 }) => {
@@ -29,14 +28,12 @@ export const Card = ({
       <CardTarget id={id} />
       <section className={`card ${cardVariantClass} positioning-parent`}>
         <header className="positioning-parent">
-          <CardImage url={images.small} alt={name} />
+          <CardImage url={images.large} alt={name} />
 
           {user && <CollectionStatus cardId={id} set={set} />}
         </header>
 
         <div className="positioning-parent card-content grid grid-sm">
-          <CardTypeBackground types={types} />
-
           <h2
             className={`typography-heading2 typography-center ${primaryType}-text`}
           >
@@ -50,7 +47,7 @@ export const Card = ({
             artist={artist}
             rarity={rarity}
             tcgplayer={tcgplayer}
-            pricedAt={priced_at}
+            pricedAt={pricedAt}
             extras={extraSummary}
           />
         </div>
