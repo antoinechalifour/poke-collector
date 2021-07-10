@@ -1,60 +1,67 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
-export const SetItem = ({ hit, components }) => (
-  <>
-    <Link href={`/sets/${hit.id}`}>
-      <a>
-        <div className="grid">
-          <span className="positioning-parent aspect-ratio">
-            <Image layout="fill" objectFit="contain" src={hit.image} />
-          </span>
+export const SetItem = ({ hit, components }) => {
+  const router = useRouter();
+  const href = `/sets/${hit.id}`;
+  const isSamePage = router.asPath === href;
 
-          <p>
-            <span>
-              <components.Highlight hit={hit} attribute="name" />
-            </span>{" "}
-            in sets
-          </p>
+  return (
+    <>
+      <Link href={href} replace={isSamePage} shallow={isSamePage}>
+        <a>
+          <div className="grid">
+            <span className="positioning-parent aspect-ratio">
+              <Image layout="fill" objectFit="contain" src={hit.image} />
+            </span>
 
-          <p>
-            <components.Highlight hit={hit} attribute="releaseDate" /> •{" "}
-            {hit.printedTotal} cards • {hit.secrets} secret cards
-          </p>
-        </div>
-      </a>
-    </Link>
-    <style jsx>{`
-      div {
-        grid-template-columns: 40px 1fr;
-        grid-gap: 1rem 2rem;
-        grid-template-rows: auto auto;
-        align-items: center;
-      }
+            <p>
+              <span>
+                <components.Highlight hit={hit} attribute="name" />
+              </span>{" "}
+              in sets
+            </p>
 
-      span {
-        --aspect-ratio-width: 1;
-        --aspect-ratio-height: 1;
-      }
+            <p>
+              <components.Highlight hit={hit} attribute="releaseDate" />•{" "}
+              {hit.printedTotal} cards • {hit.secrets} secret cards
+            </p>
+          </div>
+        </a>
+      </Link>
+      <style jsx>{`
+        div {
+          grid-template-columns: 40px 1fr;
+          grid-gap: 1rem 2rem;
+          grid-template-rows: auto auto;
+          align-items: center;
+        }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
+        span {
+          --aspect-ratio-width: 1;
+          --aspect-ratio-height: 1;
+        }
 
-      div > :global(:first-child) {
-        grid-row: 1 / span 2;
-      }
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
 
-      p:nth-child(2) span {
-        font-weight: 600;
-      }
+        div > :global(:first-child) {
+          grid-row: 1 / span 2;
+        }
 
-      p:nth-child(3) {
-        grid-column: 2;
-        opacity: 0.85;
-        font-size: 1.4rem;
-      }
-    `}</style>
-  </>
-);
+        p:nth-child(2) span {
+          font-weight: 600;
+        }
+
+        p:nth-child(3) {
+          grid-column: 2;
+          opacity: 0.85;
+          font-size: 1.4rem;
+        }
+      `}</style>
+    </>
+  );
+};
