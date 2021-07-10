@@ -1,4 +1,4 @@
-import { QuickSearch } from "./Search/QuickSearch";
+import { Search } from "./Search/Search";
 import { AuthenticationStatus } from "./AuthenticationStatus";
 import { NavBarTitle } from "./NavBarTitle";
 
@@ -9,7 +9,7 @@ export const NavBar = ({ subtitle }) => (
 
       <AuthenticationStatus />
 
-      <QuickSearch />
+      <Search />
     </div>
 
     <style jsx>{`
