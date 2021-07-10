@@ -251,10 +251,6 @@ a {
   top: 2rem;
 }
 
-.aa-DetachedSearchButton {
-  width: 200px;
-}
-
 @media (max-width: 860px) {
   .aa-DetachedSearchButton {
     width: auto;

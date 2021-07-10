@@ -4,12 +4,12 @@ import { NavBarTitle } from "./NavBarTitle";
 
 export const NavBar = ({ subtitle }) => (
   <nav>
-    <div className="page-container grid grid-default grid-center-x card-content">
+    <div className="page-container grid grid-default grid-center-x grid-center-x">
       <NavBarTitle subtitle={subtitle} />
 
-      <QuickSearch />
-
       <AuthenticationStatus />
+
+      <QuickSearch />
     </div>
 
     <style jsx>{`
@@ -23,7 +23,16 @@ export const NavBar = ({ subtitle }) => (
       }
 
       div {
-        grid-template-columns: 1fr auto auto;
+        grid-template-columns: 1fr auto 2rem;
+        padding: 1rem 2rem;
+        min-height: 84px;
+      }
+
+      @media (min-width: 860px) {
+        div {
+          grid-template-columns: 1fr auto 30rem;
+          padding: 1rem 0;
+        }
       }
     `}</style>
   </nav>
